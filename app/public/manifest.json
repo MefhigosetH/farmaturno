@@ -3,7 +3,7 @@
   "name": "Farmacias de Turno",
   "description": "Farmacias de Turno de Almirante Brown",
   "homepage_url": "https://farmaturno.com.ar",
-  "start_url": "/",
+  "start_url": "/index.html",
   "icons": [
     {
       "src": "favicon.ico",
@@ -13,12 +13,7 @@
     {
       "src": "logo.png",
       "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "96x96"
     }
   ],
   "start_url": ".",
