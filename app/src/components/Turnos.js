@@ -1,14 +1,17 @@
 // Importamos librerias instaladas
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+//import Card from '@material-ui/core/Card';
+//import CardActions from '@material-ui/core/CardActions';
+//import CardActionArea from '@material-ui/core/CardActionArea';
+//import CardContent from '@material-ui/core/CardContent';
+//import CardMedia from '@material-ui/core/CardMedia';
+//import Button from '@material-ui/core/Button';
+//import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+
+// Importamos componentes locales
+import FarmaciaCard from './FarmaciaCard';
 
 // Pharma image from https://www.freepik.com/free-photos-vectors/woman
 
@@ -17,7 +20,7 @@ export default class Turnos extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { farmacias: [] };
   }
 
   useStyles(){
@@ -32,46 +35,40 @@ export default class Turnos extends React.Component {
   }
 
 
+  async componentDidMount() {
+    // Traigo la lista de farmacias
+    const response = await fetch('/json/farmacias-' + this.props.partido + '.json');
+    const json = await response.json();
+
+    // Convierto el objeto Json a Array para poder iterar con map()
+    var farmacias = [];
+    Object.keys(json).forEach(function(key) {
+      //console.log('key :', json[key][0]);
+      json[key].forEach(function(value) {
+        //console.log('value : ', value);
+        farmacias.push(value);
+      });
+    });
+
+    this.setState({ farmacias: farmacias });
+  }
+
   render() {
 
-    const classes = this.useStyles();
+    //const classes = this.useStyles();
+    const farmacias = this.state.farmacias;
+    console.log('json: ', farmacias);
 
     return (
-      <Grid container justify='center' spacing={10} style={{padding: '24px'}} >
+      <Grid container justify='center' spacing={2}>
 
-        <Grid key={0} item xs={12} sm={6} md={4} lg={4} xl={3} >
-          <Card className={classes.root}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                className={classes.media}
-                image="./farmacia-default.jpg"
-                title="Famacia Default"
-              />
-
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Farma24
-                </Typography>
-
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Gorriti 3000, Rafael Calzada
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-
-            <CardActions>
-              <Button size="small" color="primary">
-                Share
-              </Button>
-              <Button size="small" color="primary">
-                Learn More
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
+        {
+          //JSON.stringify(farmacias['rafael-calzada'])
+          farmacias.map( farmacia => <FarmaciaCard farmacia={farmacia} /> )
+        }
 
       </Grid>
     );
+
   }
 }
