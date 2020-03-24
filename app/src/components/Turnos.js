@@ -50,17 +50,19 @@ export default class Turnos extends React.Component {
 
     //const classes = this.useStyles();
     const farmacias = this.state.farmacias;
-    //console.log('json: ', farmacias);
 
     return (
-      <Grid container justify='center' spacing={2}>
+      <React.Fragment>
+
+        <Grid container justify='center' spacing={2}>
 
         {
           //JSON.stringify(farmacias['rafael-calzada'])
           farmacias.map( farmacia => <FarmaciaCard farmacia={farmacia} key={farmacia.id}/> )
         }
 
-      </Grid>
+        </Grid>
+      </React.Fragment>
     );
 
   }

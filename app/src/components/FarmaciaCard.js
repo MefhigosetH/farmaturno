@@ -9,6 +9,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Chip from '@material-ui/core/Chip';
+import ScheduleIcon from '@material-ui/icons/Schedule';
+import RoomIcon from '@material-ui/icons/Room';
 
 // Pharma image from https://www.freepik.com/free-photos-vectors/woman
 
@@ -41,24 +44,16 @@ export default class FarmaciaCard extends React.Component {
     const farmacia = this.props.farmacia;
 
     return (
-        <Grid key={farmacia.id} item xs={12} sm={6} md={4} lg={4} xl={3} >
+        <Grid key={farmacia.id} item xs={12} sm={6} md={4} lg={3} xl={3} >
           <Card className={classes.root}>
             <CardActionArea>
-              <CardMedia
-                component="img"
-                className={classes.media}
-                image="./farmacia-default.jpg"
-                title={farmacia.nombre}
-              />
 
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  {farmacia.nombre}
+                  Farmacia {farmacia.nombre}
                 </Typography>
 
-                <Typography variant="body2" color="textSecondary" component="p">
-                  {farmacia.domicilio}
-                </Typography>
+                <Chip icon={<RoomIcon />} label={farmacia.domicilio} />
               </CardContent>
             </CardActionArea>
 
@@ -66,6 +61,7 @@ export default class FarmaciaCard extends React.Component {
               <Button size="small" color="primary">
                 Ver en Mapa
               </Button>
+              <Chip icon={<ScheduleIcon />} label="de Turno" color="primary" size="small"/>
             </CardActions>
           </Card>
         </Grid>
