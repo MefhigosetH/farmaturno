@@ -53,7 +53,6 @@ export default class FarmaciaCard extends React.Component {
           <Button size="small" color="primary">
             Ver en Mapa
           </Button>
-          <Chip icon={<ScheduleIcon />} label="de Turno" color="primary" size="small"/>
         </CardActions>
 
       </Card>
@@ -63,3 +62,5 @@ export default class FarmaciaCard extends React.Component {
   }
 
 }
+//          <Chip icon={<ScheduleIcon />} label="de Turno" color="primary" size="small"/>
+
