@@ -1,6 +1,6 @@
 // Importamos librerias instaladas
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
+//import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
 // Importamos componentes locales
@@ -16,17 +16,6 @@ export default class Turnos extends React.Component {
     this.state = { farmacias: [] };
   }
 
-  useStyles(){
-    return  makeStyles({
-      root: {
-        maxWidth: 345,
-      },
-      media: {
-        height: 140,
-      },
-    });
-  }
-
 
   async componentDidMount() {
     // Traigo la lista de farmacias
@@ -36,34 +25,40 @@ export default class Turnos extends React.Component {
     // Convierto el objeto Json a Array para poder iterar con map()
     var farmacias = [];
     Object.keys(json).forEach(function(key) {
+
       //console.log('key :', json[key][0]);
       json[key].forEach(function(value) {
         //console.log('value : ', value);
+        value.localidad = key;
         farmacias.push(value);
       });
+
     });
 
     this.setState({ farmacias: farmacias });
   }
 
+
   render() {
 
-    //const classes = this.useStyles();
+    //const style = this.useStyles();
     const farmacias = this.state.farmacias;
 
     return (
       <React.Fragment>
 
-        <Grid container justify='center' spacing={2}>
+        <Grid container>
 
-        {
-          //JSON.stringify(farmacias['rafael-calzada'])
-          farmacias.map( farmacia => <FarmaciaCard farmacia={farmacia} key={farmacia.id}/> )
-        }
+          { farmacias.map(
+            farmacia => <Grid item key={farmacia.id} xs={12} sm={6} md={4} lg={3} xl={2} style={{padding: 16}}>
+              <FarmaciaCard farmacia={farmacia} />
+            </Grid>
+          )}
 
         </Grid>
       </React.Fragment>
     );
 
   }
+
 }

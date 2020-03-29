@@ -1,5 +1,6 @@
 // Importamos librerias instaladas
 import React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 // Importamos componentes locales
 import Header from './Header.js'
@@ -19,6 +20,8 @@ export default class App extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <CssBaseline />
+
         <Header title='Farmacias de Turno' />
 
         <Turnos partido={this.state.partido} />
