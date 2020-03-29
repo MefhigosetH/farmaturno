@@ -19,7 +19,7 @@ export default class Header extends React.Component {
     const title = this.props.title || 'FarmaTurno App';
 
     return (
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="menu">
             <LocalPharmacyIcon />
