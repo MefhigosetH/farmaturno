@@ -11,6 +11,7 @@ import Chip from '@material-ui/core/Chip';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 //import RoomIcon from '@material-ui/icons/Room';
 import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
 
 // Pharma image from https://www.freepik.com/free-photos-vectors/woman
 
@@ -48,6 +49,8 @@ export default class FarmaciaCard extends React.Component {
         <CardContent style={{textAlign: 'center'}}>
           <p>{farmacia.domicilio}</p>
         </CardContent>
+
+        <Divider />
 
         <CardActions style={{justifyContent: 'space-between'}}>
           <Button size="small" color="primary">
