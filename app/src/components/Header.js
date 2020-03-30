@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 
 import LocalPharmacyIcon from '@material-ui/icons/LocalPharmacy';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 // Default export
 export default class Header extends React.Component {
@@ -20,14 +21,23 @@ export default class Header extends React.Component {
 
     return (
       <AppBar position="sticky">
+
         <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="menu">
+
+          <IconButton edge="start" color="inherit" aria-label="menu" href="https://farmaturno.com.ar">
             <LocalPharmacyIcon />
           </IconButton>
-          <Typography variant="h6">
+
+          <Typography variant="h6" style={{flexGrow: 1}}>
             {title}
           </Typography>
+
+          <IconButton aria-label="contribute" color="inherit" href="https://github.com/MefhigosetH/farmaturno">
+            <GitHubIcon />
+          </IconButton>
+
         </Toolbar>
+
       </AppBar>
     );
   }
