@@ -7,36 +7,59 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 // Importamos componentes locales
 import FarmaciaCard from './FarmaciaCard';
 
-// Pharma image from https://www.freepik.com/free-photos-vectors/woman
-
 // Default export
 export default class Turnos extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { farmacias: [] };
+    this.state = { isLoading: true, farmacias: [], turnos: [] };
   }
 
 
   async componentDidMount() {
-    // Traigo la lista de farmacias
-    const response = await fetch('/json/farmacias-' + this.props.partido + '.json');
-    const json = await response.json();
 
-    // Convierto el objeto Json a Array para poder iterar con map()
+    var turnos = [];
+
+    // Traigo la lista de turnos
+    try {
+
+      const response = await fetch('/json/turnos-202003.json');
+      const json = await response.json();
+
+      const hoy = new Date().getDate();
+      turnos = json[hoy];
+      this.setState({ turnos: turnos, isLoading: false });
+
+    } catch(error) {
+      console.log(error);
+    }
+
     var farmacias = [];
-    Object.keys(json).forEach(function(key) {
 
-      //console.log('key :', json[key][0]);
-      json[key].forEach(function(value) {
-        //console.log('value : ', value);
-        value.localidad = key;
-        farmacias.push(value);
+    // Traigo la lista de farmacias
+    try {
+
+      const response = await fetch('/json/farmacias-' + this.props.partido + '.json');
+      const json = await response.json();
+
+      // Convierto el objeto Json a Array para poder iterar con map()
+      Object.keys(json).forEach(function(key) {
+
+        //console.log('key :', json[key][0]);
+        json[key].forEach(function(value) {
+          value.localidad = key;
+          value.turno = turnos.includes(value.id);
+          value.turno ? farmacias.unshift(value) : farmacias.push(value);
+        });
+
       });
 
-    });
+      this.setState({ farmacias: farmacias, isLoading: false });
 
-    this.setState({ farmacias: farmacias });
+    } catch(error) {
+      console.log(error);
+    }
+
   }
 
 
@@ -45,7 +68,7 @@ export default class Turnos extends React.Component {
     //const style = this.useStyles();
     const farmacias = this.state.farmacias;
 
-    if(!farmacias.length) {
+    if(this.state.isLoading) {
       return ( <CircularProgress /> );
     }
 

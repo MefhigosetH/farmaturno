@@ -7,8 +7,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 //import Typography from '@material-ui/core/Typography';
-//import Chip from '@material-ui/core/Chip';
-//import ScheduleIcon from '@material-ui/icons/Schedule';
+import Chip from '@material-ui/core/Chip';
+import ScheduleIcon from '@material-ui/icons/Schedule';
 //import RoomIcon from '@material-ui/icons/Room';
 import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
@@ -56,6 +56,7 @@ export default class FarmaciaCard extends React.Component {
           <Button size="small" color="primary">
             Ver en Mapa
           </Button>
+          { farmacia.turno && <Chip icon={<ScheduleIcon />} label="de Turno" color="primary" size="small"/> }
         </CardActions>
 
       </Card>
@@ -65,5 +66,3 @@ export default class FarmaciaCard extends React.Component {
   }
 
 }
-//          <Chip icon={<ScheduleIcon />} label="de Turno" color="primary" size="small"/>
-
