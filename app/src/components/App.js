@@ -15,6 +15,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+    document.body.style = 'background: #ECF0F1;';
   }
 
   render() {
