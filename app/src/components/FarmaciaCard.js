@@ -1,6 +1,6 @@
 // Importamos librerias instaladas
 import React from 'react'
-//import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
@@ -13,10 +13,9 @@ import ScheduleIcon from '@material-ui/icons/Schedule';
 import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
 
-// Pharma image from https://www.freepik.com/free-photos-vectors/woman
 
 // Default export
-export default class FarmaciaCard extends React.Component {
+class FarmaciaCard extends React.Component {
 
   constructor(props) {
     super(props);
@@ -28,17 +27,23 @@ export default class FarmaciaCard extends React.Component {
   }
 
 
+  humanize(text) {
+    return text.replace( "-", " ")
+  }
+
+
   render() {
 
-    //const style = this.useStyles();
-    const { farmacia } = this.props;
+    const { farmacia, classes } = this.props;
+    const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=";
+    const googleMapsQuery = encodeURI( farmacia.domicilio + ", " + this.humanize(farmacia.localidad) );
 
     return (
       <Card>
 
         <CardHeader
           avatar={
-            <Avatar aria-label="farmacia" style={{backgroundColor: '#3f51b5'}}>
+            <Avatar aria-label="farmacia" className={classes.avatar}>
               {"F" + farmacia.nombre.charAt(0)}
             </Avatar>
           }
@@ -46,14 +51,14 @@ export default class FarmaciaCard extends React.Component {
           subheader={farmacia.localidad}
         />
 
-        <CardContent style={{textAlign: 'center'}}>
+        <CardContent className={classes.cardContent}>
           <p>{farmacia.domicilio}</p>
         </CardContent>
 
         <Divider />
 
-        <CardActions style={{justifyContent: 'space-between'}}>
-          <Button size="small" color="primary">
+        <CardActions className={classes.cardActions}>
+          <Button size="small" color="primary" href={googleMapsUrl + googleMapsQuery}>
             Ver en Mapa
           </Button>
           { farmacia.turno && <Chip icon={<ScheduleIcon />} label="de Turno" color="primary" size="small"/> }
@@ -65,4 +70,23 @@ export default class FarmaciaCard extends React.Component {
 
   }
 
+
 }
+
+
+
+const styles = theme => ({
+  avatar: {
+    backgroundColor: '#3f51b5',
+  },
+  cardContent: {
+    textAlign: 'center',
+  },
+  cardActions: {
+    justifyContent: 'space-between',
+  }
+});
+
+
+
+export default withStyles(styles)(FarmaciaCard);
