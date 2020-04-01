@@ -1,6 +1,9 @@
 // Importamos librerias instaladas
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import primary from '@material-ui/core/colors/teal';
+import secondary from '@material-ui/core/colors/pink';
 
 // Importamos componentes locales
 import Header from './Header.js'
@@ -15,18 +18,26 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    document.body.style = 'background: #ECF0F1;';
   }
 
   render() {
+
+    const darkTheme = createMuiTheme({
+      palette: {
+        type: 'dark',
+        primary: primary,
+        secondary: secondary
+      },
+    });
+
     return (
-      <React.Fragment>
+      <ThemeProvider theme={darkTheme}>
         <CssBaseline />
 
         <Header title='Farmacias de Turno' />
 
         <Turnos partido={this.state.partido} />
-      </React.Fragment>
+      </ThemeProvider>
     );
   }
 }

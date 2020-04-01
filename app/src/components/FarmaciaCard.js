@@ -58,10 +58,10 @@ class FarmaciaCard extends React.Component {
         <Divider />
 
         <CardActions className={classes.cardActions}>
-          <Button size="small" color="primary" href={googleMapsUrl + googleMapsQuery}>
+          <Button size="small" color="primary" variant="contained" href={googleMapsUrl + googleMapsQuery}>
             Ver en Mapa
           </Button>
-          { farmacia.turno && <Chip icon={<ScheduleIcon />} label="de Turno" color="primary" size="small"/> }
+          { farmacia.turno && <Chip icon={<ScheduleIcon />} label="de Turno" color="secondary" size="small"/> }
         </CardActions>
 
       </Card>
@@ -78,6 +78,7 @@ class FarmaciaCard extends React.Component {
 const styles = theme => ({
   avatar: {
     backgroundColor: theme.palette.primary.main,
+    color: theme.palette.text.primary
   },
   cardContent: {
     textAlign: 'center',

@@ -24,7 +24,7 @@ export default class Header extends React.Component {
 
         <Toolbar>
 
-          <IconButton edge="start" color="inherit" aria-label="menu" href="https://farmaturno.com.ar">
+          <IconButton edge="start" aria-label="menu" href="https://farmaturno.com.ar">
             <LocalPharmacyIcon />
           </IconButton>
 
@@ -32,7 +32,7 @@ export default class Header extends React.Component {
             {title}
           </Typography>
 
-          <IconButton aria-label="contribute" color="inherit" href="https://github.com/MefhigosetH/farmaturno">
+          <IconButton aria-label="contribute" href="https://github.com/MefhigosetH/farmaturno">
             <GitHubIcon />
           </IconButton>
 
