@@ -77,7 +77,7 @@ class FarmaciaCard extends React.Component {
 
 const styles = theme => ({
   avatar: {
-    backgroundColor: '#3f51b5',
+    backgroundColor: theme.palette.primary.main,
   },
   cardContent: {
     textAlign: 'center',
