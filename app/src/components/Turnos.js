@@ -23,10 +23,15 @@ export default class Turnos extends React.Component {
     // Traigo la lista de turnos
     try {
 
-      const response = await fetch('/json/turnos-202003.json');
+      // getMonth() devuelve 0 < int < 11
+      const mes = new Date().getMonth() + 1;
+
+      const response = await fetch('/json/turnos-2020-' + mes + '.json');
       const json = await response.json();
 
+      // getDate() devuelve 1 < int < 31
       const hoy = new Date().getDate();
+
       turnos = json[hoy];
       this.setState({ turnos: turnos, isLoading: false });
 
