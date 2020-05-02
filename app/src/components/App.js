@@ -8,6 +8,7 @@ import secondary from '@material-ui/core/colors/pink';
 // Importamos componentes locales
 import Header from './Header.js'
 import Turnos from './Turnos.js'
+import FabButton from './Fab.js'
 
 // Default export
 export default class App extends React.Component {
@@ -37,6 +38,9 @@ export default class App extends React.Component {
         <Header title='Farmacias de Turno' />
 
         <Turnos partido={this.state.partido} />
+
+        <FabButton />
+
       </ThemeProvider>
     );
   }
