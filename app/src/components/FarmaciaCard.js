@@ -53,6 +53,8 @@ class FarmaciaCard extends React.Component {
 
         <CardContent className={classes.cardContent}>
           <p>{farmacia.domicilio}</p>
+          {farmacia.telefono &&
+            <a href={'tel:'+farmacia.telefono} className={classes.tel}>{farmacia.telefono}</a>}
         </CardContent>
 
         <Divider />
@@ -85,6 +87,9 @@ const styles = theme => ({
   },
   cardActions: {
     justifyContent: 'space-between',
+  },
+  tel: {
+    color: theme.palette.text.primary
   }
 });
 

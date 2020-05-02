@@ -31,7 +31,7 @@ class FabButton extends React.Component {
 
 const styles = theme => ({
   fab: {
-    position: 'absolute',
+    position: 'fixed',
     bottom: theme.spacing(2),
     right: theme.spacing(2)
   }
