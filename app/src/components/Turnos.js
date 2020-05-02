@@ -1,14 +1,15 @@
 // Importamos librerias instaladas
 import React from 'react'
-//import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import WarningIcon from '@material-ui/icons/Warning';
 
 // Importamos componentes locales
 import FarmaciaCard from './FarmaciaCard';
 
 // Default export
-export default class Turnos extends React.Component {
+class Turnos extends React.Component {
 
   constructor(props) {
     super(props);
@@ -70,15 +71,17 @@ export default class Turnos extends React.Component {
 
   render() {
 
-    //const style = this.useStyles();
+    const { classes } = this.props;
     const farmacias = this.state.farmacias;
 
     if(this.state.isLoading) {
-      return ( <CircularProgress /> );
+      return ( <React.Fragment><CircularProgress /></React.Fragment> );
     }
 
     return (
       <React.Fragment>
+
+        <blockquote className={classes.blockquote}><WarningIcon /> IMPORTANTE: Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.</blockquote>
 
         <Grid container>
 
@@ -95,3 +98,18 @@ export default class Turnos extends React.Component {
   }
 
 }
+
+
+
+const styles = theme => ({
+  blockquote: {
+    background: theme.palette.background.paper,
+    borderLeft: '5px solid #ffe564',
+    marginTop: '24px',
+    padding: '10px 24px'
+  }
+});
+
+
+
+export default withStyles(styles)(Turnos);
