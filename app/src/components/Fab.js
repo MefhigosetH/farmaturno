@@ -15,12 +15,20 @@ class FabButton extends React.Component {
   componentDidMount() {
   }
 
+  shareSite() {
+    console.log('Compartiendo pagina por WhatsApp!');
+    window.open('https://wa.me/?text=Farmacias%20de%20turno%20en%20Almirante%20Brown%20https://farmaturno.com.ar/?utm_source=whatsapp');
+  }
+
   render() {
 
     const { classes } = this.props;
 
     return (
-      <Fab color="primary" aria-label="compartir" className={classes.fab}>
+      <Fab color="primary"
+           aria-label="compartir"
+           className={classes.fab}
+           onClick={this.shareSite}>
         <ShareIcon />
       </Fab>
     );
