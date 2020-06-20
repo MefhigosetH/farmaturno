@@ -8,10 +8,6 @@ import ShareIcon from '@material-ui/icons/Share';
 // Default export
 class FabButton extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
   }
 
