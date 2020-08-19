@@ -3,6 +3,8 @@
     "mefhigoseth"
   ],
   "extends": [
-    "config:base"
+    "config:base",
+    ":disableDevDependencies",
+    "schedule:weekly"
   ]
 }
