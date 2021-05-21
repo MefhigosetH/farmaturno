@@ -34,7 +34,7 @@ class FarmaciaCard extends React.Component {
 
   render() {
 
-    const { farmacia, classes } = this.props;
+    const { cur_date, farmacia, classes } = this.props;
     const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=";
     const googleMapsQuery = encodeURI( farmacia.direccion + ", " + this.humanize(farmacia.partido_localidad) );
 
@@ -64,7 +64,7 @@ class FarmaciaCard extends React.Component {
             Ver en Mapa
           </Button>
 
-          { farmacia.turno && <Chip icon={<ScheduleIcon />} label="de Turno" color="secondary" size="small"/> }
+          { farmacia.turnos.includes(cur_date) && <Chip icon={<ScheduleIcon />} label="de Turno" color="secondary" size="small"/> }
         </CardActions>
 
       </Card>

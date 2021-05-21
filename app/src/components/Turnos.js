@@ -20,6 +20,16 @@ class Turnos extends React.Component {
 
   async componentDidMount() {
 
+    // Calculo la fecha actual para matchearlo luego con los turnos de las farmacias...
+    const months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+    const d = new Date();
+    const year = d.getFullYear();
+    const month = months[d.getMonth()];
+    const day = d.getDate();
+    this.cur_date = `${year}${month}${day}`;
+
+
+    // Inicializo la conexion a Google Firestore...
     var db = Firebase.firestore();
 
     db.collection("farmacias").where("partido_localidad", "==", "almirante-brown_rafael-calzada")
@@ -52,7 +62,7 @@ class Turnos extends React.Component {
         <Grid container>
           { farmacias.map((farmacia) =>
               <Grid item key={farmacia.telefono} xs={12} sm={6} md={4} lg={3} xl={2} style={{padding: 16}}>
-                <FarmaciaCard farmacia={farmacia} />
+                <FarmaciaCard farmacia={farmacia} cur_date={this.cur_date} />
               </Grid>
           )}
         </Grid>
