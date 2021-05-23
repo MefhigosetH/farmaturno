@@ -6,13 +6,16 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-//import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
+
 import Chip from '@material-ui/core/Chip';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import MapIcon from '@material-ui/icons/Map';
-//import RoomIcon from '@material-ui/icons/Room';
-import Avatar from '@material-ui/core/Avatar';
-import Divider from '@material-ui/core/Divider';
+import RoomIcon from '@material-ui/icons/Room';
+import CallIcon from '@material-ui/icons/Call';
 
 
 // Default export
@@ -64,9 +67,20 @@ class FarmaciaCard extends React.Component {
         />
 
         <CardContent className={classes.cardContent}>
-          <p>{farmacia.direccion}</p>
+          <Box>
+            <Typography variant="p">
+               <RoomIcon style={{position: 'relative', top: '8px'}} /> {farmacia.direccion}
+            </Typography>
+          </Box>
+
           {farmacia.telefono &&
-            <a href={'tel:'+farmacia.telefono} className={classes.tel}>{farmacia.telefono}</a>}
+            <Box>
+              <Typography variant="p">
+                 <CallIcon style={{position: 'relative', top: '8px'}} /> <a href={'tel:'+farmacia.telefono} className={classes.tel}>{farmacia.telefono}</a>
+              </Typography>
+            </Box>
+          }
+
         </CardContent>
 
         <Divider />
@@ -82,7 +96,7 @@ class FarmaciaCard extends React.Component {
             Ver en Mapa
           </Button>
 
-          { farmacia.turnos.includes(cur_date) && <Chip icon={<ScheduleIcon />} label="de Turno" color="secondary" size="small"/> }
+          { farmacia.turnos.includes(cur_date) && <Chip icon={<ScheduleIcon />} label="De Turno Ahora !" color="secondary" size="small"/> }
         </CardActions>
 
       </Card>
