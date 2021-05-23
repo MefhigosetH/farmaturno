@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 //import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import ScheduleIcon from '@material-ui/icons/Schedule';
+import MapIcon from '@material-ui/icons/Map';
 //import RoomIcon from '@material-ui/icons/Room';
 import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
@@ -71,7 +72,13 @@ class FarmaciaCard extends React.Component {
         <Divider />
 
         <CardActions className={classes.cardActions}>
-          <Button size="small" color="primary" variant="contained" href={googleMapsUrl + googleMapsQuery}>
+          <Button
+            size="small"
+            color="primary"
+            variant="contained"
+            href={googleMapsUrl + googleMapsQuery}
+            startIcon={<MapIcon />}
+          >
             Ver en Mapa
           </Button>
 
