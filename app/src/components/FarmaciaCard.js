@@ -27,8 +27,19 @@ class FarmaciaCard extends React.Component {
   }
 
 
+  // Thanks to https://www.freecodecamp.org/news/how-to-capitalize-words-in-javascript/
   humanize(text) {
-    return text.replace( "-", " ")
+    const str = text.split("_");
+
+    const partido = str[0]
+                    .replace("-", " ")
+                    .replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+
+    const localidad = str[1]
+                      .replace("-", " ")
+                      .replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+
+    return localidad + ", " + partido
   }
 
 
@@ -48,7 +59,7 @@ class FarmaciaCard extends React.Component {
             </Avatar>
           }
           title={"Farmacia " + farmacia.nombre}
-          subheader={farmacia.partido_localidad}
+          subheader={this.humanize(farmacia.partido_localidad)}
         />
 
         <CardContent className={classes.cardContent}>
