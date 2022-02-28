@@ -6,7 +6,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import WarningIcon from '@material-ui/icons/Warning';
 
 // Importamos componentes locales
-import { db } from './Firebase';
+import { db, auth } from './Firebase';
 import FarmaciaCard from './FarmaciaCard';
 
 // Default export
@@ -19,6 +19,14 @@ class Turnos extends React.Component {
 
   async componentDidMount() {
 
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        console.log("User: ", user.uid);
+      } else {
+        // User is signed out
+      }
+    });
+
     // Calculo la fecha actual para matchearlo luego con los turnos de las farmacias...
     const months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
     const d = new Date();
@@ -27,6 +35,9 @@ class Turnos extends React.Component {
     const day = d.getDate();
     this.cur_date = `${year}${month}${day}`;
 
+    await auth.signInAnonymously();
+
+    console.log("Ejecutando Query...");
     db.collection("farmacias").where("partido_localidad", "==", "almirante-brown_rafael-calzada")
       .get()
       .then((querySnapshot) => {
