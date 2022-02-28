@@ -1,11 +1,12 @@
 // Importamos librerias instaladas
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 import primary from '@material-ui/core/colors/teal';
 import secondary from '@material-ui/core/colors/pink';
 
 // Importamos componentes locales
+import { auth } from './Firebase';
 import Header from './Header.js'
 import Turnos from './Turnos.js'
 import FabButton from './Fab.js'
@@ -19,11 +20,25 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        //var uid = user.uid;
+        console.log(user);
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+    auth.signInAnonymously();
+
   }
 
   render() {
 
-    const darkTheme = createMuiTheme({
+    const darkTheme = createTheme({
       palette: {
         type: 'dark',
         primary: primary,

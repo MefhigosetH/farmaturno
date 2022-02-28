@@ -6,7 +6,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import WarningIcon from '@material-ui/icons/Warning';
 
 // Importamos componentes locales
-import Firebase from './Firebase';
+import { db } from './Firebase';
 import FarmaciaCard from './FarmaciaCard';
 
 // Default export
@@ -17,7 +17,6 @@ class Turnos extends React.Component {
     this.state = { isLoading: true, farmacias: [], turnos: [] };
   }
 
-
   async componentDidMount() {
 
     // Calculo la fecha actual para matchearlo luego con los turnos de las farmacias...
@@ -27,10 +26,6 @@ class Turnos extends React.Component {
     const month = months[d.getMonth()];
     const day = d.getDate();
     this.cur_date = `${year}${month}${day}`;
-
-
-    // Inicializo la conexion a Google Firestore...
-    var db = Firebase.firestore();
 
     db.collection("farmacias").where("partido_localidad", "==", "almirante-brown_rafael-calzada")
       .get()

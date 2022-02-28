@@ -68,14 +68,14 @@ class FarmaciaCard extends React.Component {
 
         <CardContent className={classes.cardContent}>
           <Box>
-            <Typography variant="p">
+            <Typography variant="body1">
                <RoomIcon style={{position: 'relative', top: '8px'}} /> {farmacia.direccion}
             </Typography>
           </Box>
 
           {farmacia.telefono &&
             <Box>
-              <Typography variant="p">
+              <Typography variant="body1">
                  <CallIcon style={{position: 'relative', top: '8px'}} /> <a href={'tel:'+farmacia.telefono} className={classes.tel}>{farmacia.telefono}</a>
               </Typography>
             </Box>

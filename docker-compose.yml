@@ -11,6 +11,7 @@ services:
     command: ["npm", "start"]
     environment:
       NODE_ENV: development
+      REACT_APP_FIREBASE_APIKEY: ${REACT_APP_FIREBASE_APIKEY}
     networks:
       - lan
     ports:
