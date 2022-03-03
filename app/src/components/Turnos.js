@@ -38,8 +38,7 @@ class Turnos extends React.Component {
     await auth.signInAnonymously();
 
     console.log("Ejecutando Query...");
-    db.collection("farmacias").where("partido_localidad", "==", "almirante-brown_rafael-calzada")
-      .get()
+    db.collection("farmaciasv2").get()
       .then((querySnapshot) => {
         const farmacias = [];
         querySnapshot.forEach((doc) => {
@@ -67,7 +66,7 @@ class Turnos extends React.Component {
 
         <Grid container>
           { farmacias.map((farmacia) =>
-              <Grid item key={farmacia.telefono} xs={12} sm={6} md={4} lg={3} xl={2} style={{padding: 16}}>
+              <Grid item key={farmacia.place_id} xs={12} sm={6} md={4} lg={3} xl={2} style={{padding: 16}}>
                 <FarmaciaCard farmacia={farmacia} cur_date={this.cur_date} />
               </Grid>
           )}
