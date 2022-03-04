@@ -15,7 +15,6 @@ import Chip from '@material-ui/core/Chip';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import MapIcon from '@material-ui/icons/Map';
 import RoomIcon from '@material-ui/icons/Room';
-import CallIcon from '@material-ui/icons/Call';
 
 
 // Default export
