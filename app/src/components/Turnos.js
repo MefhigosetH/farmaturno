@@ -14,8 +14,23 @@ class Turnos extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { isLoading: true, farmacias: [], turnos: [] };
+    this.state = { isLoading: true, farmacias: [], turnos: [], origin: {'lat': -34.7989032, 'lng': -58.3611676} };
   }
+
+
+
+  // See https://stackoverflow.com/a/34486089
+  distance(lat1, lon1, lat2, lon2) {
+    var p = 0.017453292519943295;    // Math.PI / 180
+    var c = Math.cos;
+    var a = 0.5 - c((lat2 - lat1) * p)/2 +
+            c(lat1 * p) * c(lat2 * p) *
+            (1 - c((lon2 - lon1) * p))/2;
+
+    return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
+  }
+
+
 
   async componentDidMount() {
 
@@ -37,14 +52,20 @@ class Turnos extends React.Component {
 
     await auth.signInAnonymously();
 
-    console.log("Ejecutando Query...");
-    db.collection("farmacias").where("partido_localidad", "==", "almirante-brown_rafael-calzada")
-      .get()
-      .then((querySnapshot) => {
-        const farmacias = [];
-        querySnapshot.forEach((doc) => {
-          farmacias.push(doc.data());
-        });
+    db.collection("farmaciasv2").get()
+        .then((querySnapshot) => {
+
+            const farmacias = [];
+            querySnapshot.forEach((doc) => {
+
+                var farmacia = doc.data();
+                farmacia.distance = this.distance(this.state.origin.lat, this.state.origin.lng, farmacia.lat, farmacia.lng)
+                farmacias.push(farmacia);
+            });
+
+        // See https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
+        farmacias.sort((a, b) => (a.distance > b.distance) ? 1 : -1)
+
         this.setState({ farmacias: farmacias, isLoading: false });
     });
 
@@ -67,8 +88,8 @@ class Turnos extends React.Component {
 
         <Grid container>
           { farmacias.map((farmacia) =>
-              <Grid item key={farmacia.telefono} xs={12} sm={6} md={4} lg={3} xl={2} style={{padding: 16}}>
-                <FarmaciaCard farmacia={farmacia} cur_date={this.cur_date} />
+              <Grid item key={farmacia.place_id} xs={12} sm={6} md={4} lg={3} xl={2} style={{padding: 16}}>
+                <FarmaciaCard farmacia={farmacia} cur_date={this.cur_date} origin={this.state.origin} />
               </Grid>
           )}
         </Grid>
