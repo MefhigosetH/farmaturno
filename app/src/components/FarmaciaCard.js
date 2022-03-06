@@ -15,7 +15,7 @@ import Chip from '@material-ui/core/Chip';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import MapIcon from '@material-ui/icons/Map';
 import RoomIcon from '@material-ui/icons/Room';
-import CallIcon from '@material-ui/icons/Call';
+import GpsFixedIcon from '@material-ui/icons/GpsFixed';
 
 
 // Default export
@@ -47,6 +47,20 @@ class FarmaciaCard extends React.Component {
   }
 
 
+
+  // Return the first letters of the two first words in text
+  avatarize(text) {
+    const list = text.split(' ')
+    var avatar_text = list[0][0].toUpperCase();
+
+    if (list.length > 1) {
+      avatar_text = avatar_text + list[1][0].toUpperCase()
+    }
+
+    return avatar_text;
+  }
+
+
   render() {
 
     const { cur_date, farmacia, classes } = this.props;
@@ -59,7 +73,7 @@ class FarmaciaCard extends React.Component {
         <CardHeader
           avatar={
             <Avatar aria-label="farmacia" className={classes.avatar}>
-              {farmacia.name}
+              {this.avatarize(farmacia.name)}
             </Avatar>
           }
           title={farmacia.name}
@@ -69,7 +83,11 @@ class FarmaciaCard extends React.Component {
         <CardContent className={classes.cardContent}>
           <Box>
             <Typography variant="body2">
-               <RoomIcon style={{position: 'relative', top: '8px'}} /> {farmacia.formatted_address}
+               <RoomIcon style={{position: 'relative', top: '5px'}} /> {farmacia.formatted_address}
+            </Typography>
+
+            <Typography variant="body2">
+               <GpsFixedIcon style={{position: 'relative', top: '10px'}} /> {farmacia.distance.toPrecision(3) + ' Kms'}
             </Typography>
           </Box>
 
