@@ -83,11 +83,11 @@ class FarmaciaCard extends React.Component {
         <CardContent className={classes.cardContent}>
           <Box>
             <Typography variant="body2">
-               <RoomIcon style={{position: 'relative', top: '5px'}} /> {farmacia.formatted_address}
+               <RoomIcon style={{position: 'relative', top: '7px'}} /> {farmacia.formatted_address}
             </Typography>
 
             <Typography variant="body2">
-               <GpsFixedIcon style={{position: 'relative', top: '10px'}} /> {farmacia.distance.toPrecision(3) + ' Kms'}
+               <GpsFixedIcon style={{position: 'relative', top: '7px'}} /> Distancia: {farmacia.distance.toPrecision(2) + ' Kms'}
             </Typography>
           </Box>
 
