@@ -7,9 +7,9 @@ import { withStyles } from '@material-ui/core/styles';
 
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import HomeIcon from '@material-ui/icons/Home';
+//import HomeIcon from '@material-ui/icons/Home';
 import TurnIcon from '@material-ui/icons/LocalPharmacy';
-import MapIcon from '@material-ui/icons/LocationOn';
+//import MapIcon from '@material-ui/icons/LocationOn';
 
 // Default export
 class Footer extends React.Component {

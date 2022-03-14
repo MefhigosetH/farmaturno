@@ -2,13 +2,13 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
+//import Button from '@material-ui/core/Button';
+//import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
 import WarningIcon from '@material-ui/icons/Warning';
-import GpsFixedIcon from '@material-ui/icons/GpsFixed';
+//import GpsFixedIcon from '@material-ui/icons/GpsFixed';
 
 // Importamos componentes locales
 import { db, auth } from './Firebase';
