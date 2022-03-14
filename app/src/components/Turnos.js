@@ -2,8 +2,13 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+//import Button from '@material-ui/core/Button';
+//import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
+
 import CircularProgress from '@material-ui/core/CircularProgress';
 import WarningIcon from '@material-ui/icons/Warning';
+//import GpsFixedIcon from '@material-ui/icons/GpsFixed';
 
 // Importamos componentes locales
 import { db, auth } from './Firebase';
@@ -14,7 +19,32 @@ class Turnos extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { isLoading: true, farmacias: [], turnos: [], origin: {'lat': -34.7989032, 'lng': -58.3611676} };
+    this.requestLocation = this.requestLocation.bind(this);
+    this.setLocation = this.setLocation.bind(this);
+
+    this.state = {
+      isLoading: true,
+      farmacias: [],
+      turnos: [],
+      origin: {'lat': -34.7989032, 'lng': -58.3611676}
+    };
+  }
+
+
+
+  requestLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.setLocation);
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+  }
+
+
+
+  setLocation(position) {
+    console.log(position);
+    //this.setState({origin: {'lat': position.coords.latitude, 'lng': position.coords.longitude}});
   }
 
 
@@ -83,8 +113,27 @@ class Turnos extends React.Component {
 
     return (
       <React.Fragment>
+{/*
+        <Grid container spacing={3}>
+          <Grid item sm={4}>
+            <Button
+              onClick={this.requestLocation}
+              size="medium"
+              color="primary"
+              variant="contained"
+              fullWidth={true}
+              startIcon={<GpsFixedIcon />} >
+              Usar mi ubicación actual
+            </Button>
+          </Grid>
 
-        <blockquote className={classes.blockquote}><WarningIcon /> IMPORTANTE: Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.</blockquote>
+          <Grid item sm={8}>
+            <Paper><WarningIcon /> &nbsp;NOTA: Todas las distancias se están calculando desde la Estación de Rafael Calzada.</Paper>
+          </Grid>
+
+        </Grid>
+*/}
+        <blockquote className={classes.blockquote}><WarningIcon /> &nbsp;IMPORTANTE: Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.</blockquote>
 
         <Grid container>
           { farmacias.map((farmacia) =>
@@ -93,6 +142,8 @@ class Turnos extends React.Component {
               </Grid>
           )}
         </Grid>
+
+        <Box m={8}></Box>
 
       </React.Fragment>
     );
@@ -107,7 +158,7 @@ const styles = theme => ({
   blockquote: {
     background: theme.palette.background.paper,
     borderLeft: '5px solid #ffe564',
-    marginTop: '24px',
+    marginTop: '12px',
     padding: '10px 24px'
   }
 });
