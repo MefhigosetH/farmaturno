@@ -41,7 +41,7 @@ class Footer extends React.Component {
             label="Turnos"
             value="Turnos"
             component={Link}
-            to="/turnos"
+            to="/"
             icon={<TurnIcon />}
         />
 {/*
