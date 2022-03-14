@@ -42,7 +42,7 @@ export default class App extends React.Component {
           <Header title='Farmacias de Turno' />
 
           <Routes>
-              <Route path="/turnos" element={<Turnos />}/>
+              <Route path="/" element={<Turnos />}/>
               <Route path="*" element={<h1>404 Not Found</h1>}/>
           </Routes>
 

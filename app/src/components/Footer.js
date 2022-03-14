@@ -28,7 +28,7 @@ class Footer extends React.Component {
         className={classes.footer}
         showLabels
       >
-
+{/*
         <BottomNavigationAction
             label="Inicio"
             value="Inicio"
@@ -36,7 +36,7 @@ class Footer extends React.Component {
             to="/"
             icon={<HomeIcon />}
         />
-
+*/}
         <BottomNavigationAction
             label="Turnos"
             value="Turnos"
@@ -44,7 +44,7 @@ class Footer extends React.Component {
             to="/turnos"
             icon={<TurnIcon />}
         />
-
+{/*
         <BottomNavigationAction
             label="Mapa"
             value="Mapa"
@@ -52,7 +52,7 @@ class Footer extends React.Component {
             to="/mapa"
             icon={<MapIcon />}
         />
-
+*/}
       </BottomNavigation>
     );
   }

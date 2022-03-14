@@ -113,7 +113,7 @@ class Turnos extends React.Component {
 
     return (
       <React.Fragment>
-
+{/*
         <Grid container spacing={3}>
           <Grid item sm={4}>
             <Button
@@ -132,7 +132,7 @@ class Turnos extends React.Component {
           </Grid>
 
         </Grid>
-
+*/}
         <blockquote className={classes.blockquote}><WarningIcon /> &nbsp;IMPORTANTE: Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.</blockquote>
 
         <Grid container>
