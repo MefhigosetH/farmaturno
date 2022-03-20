@@ -105,6 +105,7 @@ class Turnos extends React.Component {
     try {
         const response = await fetch("https://deploy-preview-77--farma-turno.netlify.app/api/farmacias");
         items = await response.json();
+        console.log(items);
 
         items.forEach( (item) => {
             var farmacia = item['Items'];
