@@ -1,6 +1,6 @@
 const AWS = require("aws-sdk");
 
-const TABLE_NAME = "farmacias-dev";
+const TABLE_NAME = "farmaturno-farmacias-dev";
 
 // destructure env variables
 const { FT_AWS_ACCESS_KEY_ID, FT_AWS_SECRET_ACCESS_KEY, FT_AWS_REGION } = process.env
