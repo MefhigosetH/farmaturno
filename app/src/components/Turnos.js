@@ -11,7 +11,7 @@ import WarningIcon from '@material-ui/icons/Warning';
 //import GpsFixedIcon from '@material-ui/icons/GpsFixed';
 
 // Importamos componentes locales
-import { db, auth } from './Firebase';
+//import { db, auth } from './Firebase';
 import FarmaciaCard from './FarmaciaCard';
 
 // Default export
@@ -63,7 +63,7 @@ class Turnos extends React.Component {
 
 
   async componentDidMount() {
-
+/*
     auth.onAuthStateChanged((user) => {
       if (user) {
         console.log("User: ", user.uid);
@@ -71,7 +71,7 @@ class Turnos extends React.Component {
         // User is signed out
       }
     });
-
+*/
     // Calculo la fecha actual para matchearlo luego con los turnos de las farmacias...
     const months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
     const d = new Date();
@@ -79,7 +79,7 @@ class Turnos extends React.Component {
     const month = months[d.getMonth()];
     const day = d.getDate();
     this.cur_date = `${year}${month}${day}`;
-
+/*
     await auth.signInAnonymously();
 
     db.collection("farmaciasv2").get()
@@ -98,7 +98,27 @@ class Turnos extends React.Component {
 
         this.setState({ farmacias: farmacias, isLoading: false });
     });
+*/
+    const farmacias = [];
+    var items = {};
 
+    try {
+        const response = await fetch("https://deploy-preview-77--farma-turno.netlify.app/api/farmacias");
+        items = await response.json();
+
+        items.forEach( (item) => {
+            var farmacia = item['Items'];
+            farmacia.distance = this.distance(this.state.origin.lat, this.state.origin.lng, farmacia.lat, farmacia.lng)
+            farmacias.push(farmacia);
+        });
+
+        // See https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
+        farmacias.sort((a, b) => (a.distance > b.distance) ? 1 : -1)
+        this.setState({ farmacias: farmacias, isLoading: false });
+
+    } catch( e ){
+        console.log(e)
+    }
   }
 
 
