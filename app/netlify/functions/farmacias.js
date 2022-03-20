@@ -1,8 +1,16 @@
+const { TABLE_NAME, dynamoDb } = require("../dynamodb-client")
+
 exports.handler = async function(event, context) {
     // your server-side functionality
-  return {
-    statusCode: 200,
-    body: JSON.stringify(event),
-  };
+    var params = {
+        TableName : TABLE_NAME,
+    };
+
+    let result = await dynamoDb.scan(params).promise();
+
+    return {
+        statusCode: 200,
+        body: JSON.stringify(result),
+    };
 }
 
