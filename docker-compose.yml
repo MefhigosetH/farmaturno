@@ -12,6 +12,9 @@ services:
     environment:
       NODE_ENV: development
       REACT_APP_FIREBASE_APIKEY: ${REACT_APP_FIREBASE_APIKEY}
+      FT_AWS_ACCESS_KEY_ID: ${FT_AWS_ACCESS_KEY_ID}
+      FT_AWS_SECRET_ACCESS_KEY: ${FT_AWS_SECRET_ACCESS_KEY}
+      FT_AWS_REGION: ${FT_AWS_REGION}
     networks:
       - lan
     ports:
