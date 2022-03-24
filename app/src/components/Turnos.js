@@ -75,11 +75,19 @@ class Turnos extends React.Component {
     var farmacias = items['Items'];
 
     farmacias.forEach( (farmacia) => {
-        farmacia.distance = this.distance(this.state.origin.lat, this.state.origin.lng, farmacia.lat, farmacia.lng)
+        farmacia.distance = this.distance(this.state.origin.lat, this.state.origin.lng, farmacia.lat, farmacia.lng);
     });
 
     // See https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
     farmacias.sort((a, b) => (a.distance > b.distance) ? 1 : -1)
+
+    farmacias.forEach( (farmacia) => {
+        if( farmacia.turnos.includes(this.cur_date) ){
+          farmacias.splice( farmacias.indexOf(farmacia), 1 );
+          farmacias.unshift( farmacia );
+        }
+    });
+
     this.setState({ farmacias: farmacias, isLoading: false });
 
   }
@@ -120,7 +128,7 @@ class Turnos extends React.Component {
 
         <Grid container>
           { farmacias.map((farmacia) =>
-              <Grid item key={farmacia.place_id} xs={12} sm={6} md={4} lg={3} xl={2} style={{padding: 16}}>
+              <Grid item key={farmacia.place_id} xs={12} sm={6} md={4} lg={3} xl={3} style={{padding: 16}}>
                 <FarmaciaCard farmacia={farmacia} cur_date={this.cur_date} origin={this.state.origin} />
               </Grid>
           )}
