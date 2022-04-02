@@ -70,7 +70,8 @@ class Turnos extends React.Component {
     const day = d.getDate();
     this.cur_date = `${year}${month}${day}`;
 
-    const response = await fetch("https://deploy-preview-77--farma-turno.netlify.app/api/farmacias");
+//    const response = await fetch("https://deploy-preview-77--farma-turno.netlify.app/api/farmacias");
+    const response = await fetch("https://farmaturno.com.ar/api/farmacias");
     const items = await response.json();
     var farmacias = items['Items'];
 
