@@ -16,6 +16,7 @@ import ScheduleIcon from '@material-ui/icons/Schedule';
 import MapIcon from '@material-ui/icons/Map';
 import RoomIcon from '@material-ui/icons/Room';
 import GpsFixedIcon from '@material-ui/icons/GpsFixed';
+import CallIcon from '@material-ui/icons/Call';
 
 
 // Default export
@@ -88,7 +89,12 @@ class FarmaciaCard extends React.Component {
 
             <Typography variant="body2">
                <GpsFixedIcon style={{position: 'relative', top: '7px'}} /> Distancia: {farmacia.distance.toPrecision(2) + ' Kms'}
+
+               { farmacia.phone &&
+                   <span> | <CallIcon style={{position: 'relative', top: '7px'}} /> <a href={'tel:'+farmacia.phone} className={classes.tel}>{farmacia.phone}</a></span>
+               }
             </Typography>
+
           </Box>
 
         </CardContent>
