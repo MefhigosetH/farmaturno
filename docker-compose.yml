@@ -11,7 +11,7 @@ services:
     command: ["npm", "start"]
     environment:
       NODE_ENV: development
-      REACT_APP_FIREBASE_APIKEY: ${REACT_APP_FIREBASE_APIKEY}
+      REACT_APP_MAPBOX_TOKEN: ${REACT_APP_MAPBOX_TOKEN}
       FT_AWS_ACCESS_KEY_ID: ${FT_AWS_ACCESS_KEY_ID}
       FT_AWS_SECRET_ACCESS_KEY: ${FT_AWS_SECRET_ACCESS_KEY}
       FT_AWS_REGION: ${FT_AWS_REGION}
