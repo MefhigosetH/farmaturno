@@ -129,7 +129,11 @@ class Turnos extends React.Component {
 
         </Grid>
 */}
-        <blockquote className={classes.blockquote}><WarningIcon /> &nbsp;IMPORTANTE: Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.</blockquote>
+        <blockquote className={classes.blockquote}>
+            <WarningIcon /> &nbsp;IMPORTANTE: Cada turno comienza a las 08:30 Hs del día indicado 
+            y termina a las 08:30 del día siguiente.
+            <br /> Todas las distancias se calculan, por el momento, desde la Estaci&oacute;n de Calzada.
+        </blockquote>
 
         <Grid container>
           { farmacias.map((farmacia) =>
