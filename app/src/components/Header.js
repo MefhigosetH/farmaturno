@@ -29,7 +29,7 @@ export default class Header extends React.Component {
           </IconButton>
 
           <Typography variant="h6" style={{flexGrow: 1}}>
-            {title}
+            {title} | <small>Almirante Brown</small>
           </Typography>
 
           <IconButton aria-label="contribute" href="https://github.com/MefhigosetH/farmaturno">
