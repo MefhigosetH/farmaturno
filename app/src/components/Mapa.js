@@ -38,13 +38,23 @@ class Mapa extends React.PureComponent {
         zoom: zoom
     });
 
+    // Create a new marker.
+    new mapboxgl.Marker()
+        .setLngLat([lng, lat])
+        .addTo(map);
+/*
+    map.addSource('farmacias', {
+      type: 'geojson',
+      data: 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_ports.geojson'
+    });
+*/
   }
 
 
   render() {
 
-    const { classes } = this.props;
-    const farmacias = this.state.farmacias;
+//    const { classes } = this.props;
+//    const farmacias = this.state.farmacias;
 
     if(this.state.isLoading) {
       return ( <React.Fragment><CircularProgress /></React.Fragment> );
