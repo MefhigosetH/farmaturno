@@ -14,7 +14,9 @@
   "devDependencies": {
     "@testing-library/jest-dom": "5.11.2",
     "@testing-library/react": "11.0.4",
-    "@testing-library/user-event": "12.0.15"
+    "@testing-library/user-event": "12.0.15",
+    "aws-sdk": "^2.1194.0",
+    "netlify-cli": "^10.17.4"
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
