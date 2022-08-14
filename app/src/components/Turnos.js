@@ -69,13 +69,14 @@ class Turnos extends React.Component {
     const month = months[d.getMonth()];
     const day = ("0"+ d.getDate()).slice(-2);
     this.cur_date = `${year}${month}${day}`;
-    var API_URL = '';
+    var API_URL = '/api';
 
     if( process.env.NODE_ENV === 'development' ){
-        API_URL = "https://deploy-preview-81--farma-turno.netlify.app";
+//        API_URL = "https://deploy-preview-81--farma-turno.netlify.app";
+        API_URL = "/.netlify/functions";
     }
 
-    const response = await fetch( API_URL + "/api/farmacias" );
+    const response = await fetch( API_URL + "/farmacias" );
     const items = await response.json();
     var farmacias = items['Items'];
 
@@ -129,7 +130,11 @@ class Turnos extends React.Component {
 
         </Grid>
 */}
-        <blockquote className={classes.blockquote}><WarningIcon /> &nbsp;IMPORTANTE: Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.</blockquote>
+        <blockquote className={classes.blockquote}>
+            <WarningIcon /> &nbsp;IMPORTANTE: Cada turno comienza a las 08:30 Hs del día indicado 
+            y termina a las 08:30 del día siguiente.
+            <br /> Todas las distancias se calculan, por el momento, desde la Estaci&oacute;n de Calzada.
+        </blockquote>
 
         <Grid container>
           { farmacias.map((farmacia) =>

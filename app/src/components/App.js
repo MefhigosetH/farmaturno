@@ -9,6 +9,7 @@ import secondary from '@material-ui/core/colors/pink';
 // Importamos componentes locales
 import Header from './Header.js'
 import Turnos from './Turnos.js'
+import Mapa from './Mapa.js'
 import Footer from './Footer.js'
 import FabButton from './Fab.js'
 
@@ -43,6 +44,7 @@ export default class App extends React.Component {
 
           <Routes>
               <Route path="/" element={<Turnos />}/>
+              <Route path="/mapa" element={<Mapa />}/>
               <Route path="*" element={<h1>404 Not Found</h1>}/>
           </Routes>
 
