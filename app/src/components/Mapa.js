@@ -31,6 +31,12 @@ class Mapa extends React.PureComponent {
 
     const { lng, lat, zoom } = this.state;
 
+    var API_URL = '/api';
+
+    if( process.env.NODE_ENV === 'development' ){
+        API_URL = "/.netlify/functions";
+    }
+
     const map = new mapboxgl.Map({
         container: this.mapContainer.current,
         style: 'mapbox://styles/mapbox/navigation-night-v1',
@@ -51,17 +57,35 @@ class Mapa extends React.PureComponent {
         })
     );
 
+    map.on('load', () => {
+        map.addSource('farmacias', {
+          type: 'geojson',
+          data: API_URL + '/farmacias?format=geojson'
+        });
+
+        // https://github.com/mapbox/mapbox-gl-styles/tree/master/sprites/basic-v8/_svg
+        // https://gis.stackexchange.com/a/187348
+        // https://docs.mapbox.com/mapbox-gl-js/example/add-image/
+        // https://docs.mapbox.com/mapbox-gl-js/example/geojson-markers/
+        map.addLayer({
+            'id': 'farmacias-layer',
+            'type': 'circle',
+            'source': 'farmacias',
+            'paint': {
+                'circle-radius': 4,
+                'circle-stroke-width': 2,
+                'circle-color': 'red',
+                'circle-stroke-color': 'white'
+            }
+        });
+    });
+
+
 /*
     // Create a new marker.
     new mapboxgl.Marker()
         .setLngLat([lng, lat])
         .addTo(map);
-*/
-/*
-    map.addSource('farmacias', {
-      type: 'geojson',
-      data: 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_ports.geojson'
-    });
 */
   }
 
