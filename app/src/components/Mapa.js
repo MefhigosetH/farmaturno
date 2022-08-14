@@ -80,6 +80,31 @@ class Mapa extends React.PureComponent {
         });
     });
 
+    // When a click event occurs on a feature in
+    // the unclustered-point layer, open a popup at
+    // the location of the feature, with
+    // description HTML from its properties.
+    // https://docs.mapbox.com/mapbox-gl-js/example/cluster/
+    map.on('click', 'farmacias-layer', (e) => {
+        const coordinates = e.features[0].geometry.coordinates.slice();
+        const nombre = e.features[0].properties.name;
+        const direccion = e.features[0].properties.formatted_address;
+
+        // Ensure that if the map is zoomed out such that
+        // multiple copies of the feature are visible, the
+        // popup appears over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(
+                `<span style='color: #000'><b>${nombre}</b><br />${direccion}<span>`
+            )
+            .addTo(map);
+    });
+
 
 /*
     // Create a new marker.
@@ -116,8 +141,8 @@ const styles = theme => ({
     marginTop: '12px',
     padding: '10px 24px'
   },
-  mapStyle: {
-    height: '400px'
+  pointPopup: {
+    color: '#000'
   }
 });
 

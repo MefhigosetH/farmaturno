@@ -27,7 +27,8 @@ function convertToGeoJson( farmacias ) {
                 "coordinates": [farmacia.lng, farmacia.lat]
             },
             "properties": {
-                "name": farmacia.name
+                "name": farmacia.name,
+                "formatted_address": farmacia.formatted_address
             }
         };
 
