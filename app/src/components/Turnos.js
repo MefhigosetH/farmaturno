@@ -2,13 +2,10 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-//import Button from '@material-ui/core/Button';
-//import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
 import WarningIcon from '@material-ui/icons/Warning';
-//import GpsFixedIcon from '@material-ui/icons/GpsFixed';
 
 // Importamos componentes locales
 import FarmaciaCard from './FarmaciaCard';
@@ -72,7 +69,6 @@ class Turnos extends React.Component {
     var API_URL = '/api';
 
     if( process.env.NODE_ENV === 'development' ){
-//        API_URL = "https://deploy-preview-81--farma-turno.netlify.app";
         API_URL = "/.netlify/functions";
     }
 
@@ -104,38 +100,22 @@ class Turnos extends React.Component {
     const { classes } = this.props;
     const farmacias = this.state.farmacias;
 
-    if(this.state.isLoading) {
-      return ( <React.Fragment><CircularProgress /></React.Fragment> );
-    }
-
     return (
       <React.Fragment>
-{/*
-        <Grid container spacing={3}>
-          <Grid item sm={4}>
-            <Button
-              onClick={this.requestLocation}
-              size="medium"
-              color="primary"
-              variant="contained"
-              fullWidth={true}
-              startIcon={<GpsFixedIcon />} >
-              Usar mi ubicación actual
-            </Button>
-          </Grid>
 
-          <Grid item sm={8}>
-            <Paper><WarningIcon /> &nbsp;NOTA: Todas las distancias se están calculando desde la Estación de Rafael Calzada.</Paper>
-          </Grid>
-
-        </Grid>
-*/}
         <blockquote className={classes.blockquote}>
             <WarningIcon /> &nbsp;IMPORTANTE: Cada turno comienza a las 08:30 Hs del día indicado 
             y termina a las 08:30 del día siguiente.
             <br /> Todas las distancias se calculan, por el momento, desde la Estaci&oacute;n de Calzada.
         </blockquote>
 
+        { this.state.isLoading &&
+          <div className={classes.loaderContainer}>
+            <CircularProgress className={classes.loaderComponent}/>
+          </div>
+        }
+
+        { !this.state.isLoading &&
         <Grid container>
           { farmacias.map((farmacia) =>
               <Grid item key={farmacia.place_id} xs={12} sm={6} md={4} lg={3} xl={3} style={{padding: 16}}>
@@ -143,6 +123,7 @@ class Turnos extends React.Component {
               </Grid>
           )}
         </Grid>
+        }
 
         <Box m={8}></Box>
 
@@ -161,6 +142,13 @@ const styles = theme => ({
     borderLeft: '5px solid #ffe564',
     marginTop: '12px',
     padding: '10px 24px'
+  },
+  loaderContainer: {
+    width: '100%',
+    height: '70vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 
