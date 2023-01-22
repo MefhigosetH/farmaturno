@@ -1,11 +1,11 @@
 // Importamos librerias instaladas
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
+import { withStyles } from '@mui/styles';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 
-import CircularProgress from '@material-ui/core/CircularProgress';
-import WarningIcon from '@material-ui/icons/Warning';
+import CircularProgress from '@mui/material/CircularProgress';
+import WarningIcon from '@mui/icons-material/Warning';
 
 // Importamos componentes locales
 import FarmaciaCard from './FarmaciaCard';
@@ -69,7 +69,7 @@ class Turnos extends React.Component {
     var API_URL = '/api';
 
     if( process.env.NODE_ENV === 'development' ){
-        API_URL = "/.netlify/functions";
+        API_URL = "http://localhost:8888/.netlify/functions";
     }
 
     const response = await fetch( API_URL + "/farmacias" );
@@ -104,9 +104,10 @@ class Turnos extends React.Component {
       <React.Fragment>
 
         <blockquote className={classes.blockquote}>
-            <WarningIcon /> &nbsp;IMPORTANTE: Cada turno comienza a las 08:30 Hs del día indicado 
-            y termina a las 08:30 del día siguiente.
-            <br /> Todas las distancias se calculan, por el momento, desde la Estaci&oacute;n de Calzada.
+            <WarningIcon /> &nbsp;IMPORTANTE:<br />
+            * Los turnos 2023 aún no están disponibles !<br />
+            * Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.<br />
+            * Todas las distancias se calculan, por el momento, desde la Estaci&oacute;n de Calzada.
         </blockquote>
 
         { this.state.isLoading &&
@@ -118,7 +119,7 @@ class Turnos extends React.Component {
         { !this.state.isLoading &&
         <Grid container>
           { farmacias.map((farmacia) =>
-              <Grid item key={farmacia.place_id} xs={12} sm={6} md={4} lg={3} xl={3} style={{padding: 16}}>
+              <Grid item key={farmacia.place_id} xs={12} sm={12} md={6} lg={4} xl={3} style={{padding: 16}}>
                 <FarmaciaCard farmacia={farmacia} cur_date={this.cur_date} origin={this.state.origin} />
               </Grid>
           )}
@@ -138,7 +139,7 @@ class Turnos extends React.Component {
 
 const styles = theme => ({
   blockquote: {
-    background: theme.palette.background.paper,
+    background: theme.palette.divider,
     borderLeft: '5px solid #ffe564',
     marginTop: '12px',
     padding: '10px 24px'

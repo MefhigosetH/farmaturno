@@ -1,12 +1,12 @@
 // Importamos librerias instaladas
 import React from 'react'
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
 
-import LocalPharmacyIcon from '@material-ui/icons/LocalPharmacy';
-import GitHubIcon from '@material-ui/icons/GitHub';
+import LocalPharmacyIcon from '@mui/icons-material/LocalPharmacy';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 // Default export
 export default class Header extends React.Component {
@@ -20,7 +20,7 @@ export default class Header extends React.Component {
     const title = this.props.title || 'FarmaTurno App';
 
     return (
-      <AppBar position="sticky">
+      <AppBar position="sticky" color="primary" enableColorOnDark>
 
         <Toolbar>
 

@@ -3,13 +3,13 @@ import React from 'react'
 
 // See https://stackoverflow.com/a/51234539
 import { Link } from "react-router-dom";
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@mui/styles';
 
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-//import HomeIcon from '@material-ui/icons/Home';
-import TurnIcon from '@material-ui/icons/LocalPharmacy';
-import MapIcon from '@material-ui/icons/LocationOn';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+//import HomeIcon from '@mui/icons-material/Home';
+import TurnIcon from '@mui/icons-material/LocalPharmacy';
+import MapIcon from '@mui/icons-material/LocationOn';
 
 // Default export
 class Footer extends React.Component {

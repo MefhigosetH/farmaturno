@@ -1,9 +1,9 @@
 // Importamos librerias instaladas
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@mui/styles';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
-import CircularProgress from '@material-ui/core/CircularProgress';
+import CircularProgress from '@mui/material/CircularProgress';
 
 // Default export
 class Mapa extends React.PureComponent {
@@ -34,7 +34,7 @@ class Mapa extends React.PureComponent {
     var API_URL = '/api';
 
     if( process.env.NODE_ENV === 'development' ){
-        API_URL = "/.netlify/functions";
+        API_URL = "http://localhost:8888/.netlify/functions";
     }
 
     const map = new mapboxgl.Map({
