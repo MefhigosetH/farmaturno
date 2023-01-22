@@ -69,7 +69,7 @@ class Turnos extends React.Component {
     var API_URL = '/api';
 
     if( process.env.NODE_ENV === 'development' ){
-        API_URL = "/.netlify/functions";
+        API_URL = "http://localhost:8888/.netlify/functions";
     }
 
     const response = await fetch( API_URL + "/farmacias" );

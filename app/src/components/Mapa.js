@@ -34,7 +34,7 @@ class Mapa extends React.PureComponent {
     var API_URL = '/api';
 
     if( process.env.NODE_ENV === 'development' ){
-        API_URL = "/.netlify/functions";
+        API_URL = "http://localhost:8888/.netlify/functions";
     }
 
     const map = new mapboxgl.Map({
