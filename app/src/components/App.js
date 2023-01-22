@@ -1,11 +1,10 @@
 // Importamos librerias instaladas
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider, createTheme } from '@material-ui/core/styles';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import primary from '@material-ui/core/colors/teal';
-import secondary from '@material-ui/core/colors/pink';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CircularProgress from '@mui/material/CircularProgress';
+import { teal, pink } from '@mui/material/colors';
 
 // Importamos componentes locales
 import Header from './Header.js'
@@ -40,9 +39,9 @@ export default class App extends React.Component {
 
     const darkTheme = createTheme({
       palette: {
-        type: 'dark',
-        primary: primary,
-        secondary: secondary
+        mode: 'dark',
+        primary: teal,
+        secondary: pink
       },
     });
 

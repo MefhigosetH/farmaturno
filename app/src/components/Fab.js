@@ -1,8 +1,8 @@
 // Importamos librerias instaladas
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Fab from '@material-ui/core/Fab';
-import ShareIcon from '@material-ui/icons/Share';
+import { withStyles } from '@mui/styles';
+import Fab from '@mui/material/Fab';
+import ShareIcon from '@mui/icons-material/Share';
 
 
 // Default export

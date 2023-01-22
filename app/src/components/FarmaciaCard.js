@@ -1,22 +1,22 @@
 // Importamos librerias instaladas
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
-import Divider from '@material-ui/core/Divider';
+import { withStyles } from '@mui/styles';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Avatar from '@mui/material/Avatar';
+import Divider from '@mui/material/Divider';
 
-import Chip from '@material-ui/core/Chip';
-import ScheduleIcon from '@material-ui/icons/Schedule';
-import MapIcon from '@material-ui/icons/Map';
-import RoomIcon from '@material-ui/icons/Room';
-import GpsFixedIcon from '@material-ui/icons/GpsFixed';
-import CallIcon from '@material-ui/icons/Call';
+import Chip from '@mui/material/Chip';
+import ScheduleIcon from '@mui/icons-material/Schedule';
+import MapIcon from '@mui/icons-material/Map';
+import RoomIcon from '@mui/icons-material/Room';
+import GpsFixedIcon from '@mui/icons-material/GpsFixed';
+import CallIcon from '@mui/icons-material/Call';
 
 
 // Default export
