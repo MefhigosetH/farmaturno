@@ -105,7 +105,7 @@ class Turnos extends React.Component {
 
         <blockquote className={classes.blockquote}>
             <WarningIcon /> &nbsp;IMPORTANTE:<br />
-            * Los turnos 2023 aún no están disponibles !<br />
+            * Ya están disponibles los turnos 2023 !<br />
             * Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.<br />
             * Todas las distancias se calculan, por el momento, desde la Estaci&oacute;n de Calzada.
         </blockquote>
