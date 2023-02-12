@@ -1,6 +1,6 @@
 .avatar {
-    background-color: #009688;
-    color: #fff;
+    background-color: #009688 !important;
+    color: #fff !important;
 }
 
 .cardContent {
