@@ -20,9 +20,7 @@ class Footer extends React.Component {
   }
 
   render() {
-
-    const { classes } = this.props;
-
+    
     return (
       <BottomNavigation
         className="footer"

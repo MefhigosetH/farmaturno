@@ -63,7 +63,7 @@ class FarmaciaCard extends React.Component {
 
   render() {
 
-    const { cur_date, farmacia, classes } = this.props;
+    const { cur_date, farmacia } = this.props;
     const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=farmacias&query_place_id=";
     const googleMapsQuery = encodeURI( farmacia.place_id );
 

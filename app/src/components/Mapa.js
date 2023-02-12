@@ -26,7 +26,6 @@ class Mapa extends React.PureComponent {
 
   async componentDidMount() {
     mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
-    console.log(mapboxgl.accessToken);
 
     const { lng, lat, zoom } = this.state;
 
@@ -130,21 +129,5 @@ class Mapa extends React.PureComponent {
   }
 
 }
-
-
-
-const styles = theme => ({
-  blockquote: {
-    background: theme.palette.background.paper,
-    borderLeft: '5px solid #ffe564',
-    marginTop: '12px',
-    padding: '10px 24px'
-  },
-  pointPopup: {
-    color: '#000'
-  }
-});
-
-
 
 export default Mapa;

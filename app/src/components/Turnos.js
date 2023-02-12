@@ -97,7 +97,6 @@ class Turnos extends React.Component {
 
   render() {
 
-    const { classes } = this.props;
     const farmacias = this.state.farmacias;
 
     return (
