@@ -1,6 +1,5 @@
 // Importamos librerias instaladas
 import React from 'react'
-import { withStyles } from '@mui/styles';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
 import CircularProgress from '@mui/material/CircularProgress';
@@ -27,7 +26,6 @@ class Mapa extends React.PureComponent {
 
   async componentDidMount() {
     mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
-    console.log(mapboxgl.accessToken);
 
     const { lng, lat, zoom } = this.state;
 
@@ -132,20 +130,4 @@ class Mapa extends React.PureComponent {
 
 }
 
-
-
-const styles = theme => ({
-  blockquote: {
-    background: theme.palette.background.paper,
-    borderLeft: '5px solid #ffe564',
-    marginTop: '12px',
-    padding: '10px 24px'
-  },
-  pointPopup: {
-    color: '#000'
-  }
-});
-
-
-
-export default withStyles(styles)(Mapa);
+export default Mapa;

@@ -1,0 +1,16 @@
+.avatar {
+    background-color: #009688 !important;
+    color: #fff !important;
+}
+
+.cardContent {
+    text-align: center;
+}
+
+.cardActions {
+    justify-content: space-between;
+}
+
+.tel {
+    color: #fff;
+}

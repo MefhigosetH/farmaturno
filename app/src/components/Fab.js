@@ -1,6 +1,6 @@
 // Importamos librerias instaladas
 import React from 'react';
-import { withStyles } from '@mui/styles';
+import './Fab.css'
 import Fab from '@mui/material/Fab';
 import ShareIcon from '@mui/icons-material/Share';
 
@@ -18,12 +18,10 @@ class FabButton extends React.Component {
 
   render() {
 
-    const { classes } = this.props;
-
     return (
       <Fab color="primary"
            aria-label="compartir"
-           className={classes.fab}
+           className="fab"
            onClick={this.shareSite}>
         <ShareIcon />
       </Fab>
@@ -31,16 +29,4 @@ class FabButton extends React.Component {
   }
 }
 
-
-
-const styles = theme => ({
-  fab: {
-    position: 'fixed',
-    bottom: theme.spacing(2),
-    right: theme.spacing(2)
-  }
-});
-
-
-
-export default withStyles(styles)(FabButton);
+export default FabButton;
