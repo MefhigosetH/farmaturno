@@ -1,6 +1,5 @@
-// Importamos librerias instaladas
-import React from 'react'
-import { withStyles } from '@mui/styles';
+import React from 'react';
+import './FarmaciaCard.css'
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardActions from '@mui/material/CardActions';
@@ -73,7 +72,7 @@ class FarmaciaCard extends React.Component {
 
         <CardHeader
           avatar={
-            <Avatar aria-label="farmacia" className={classes.avatar}>
+            <Avatar aria-label="farmacia" className="avatar">
               {this.avatarize(farmacia.name)}
             </Avatar>
           }
@@ -81,7 +80,7 @@ class FarmaciaCard extends React.Component {
           subheader={farmacia.compound_code}
         />
 
-        <CardContent className={classes.cardContent}>
+        <CardContent className="cardContent">
           <Box>
             <Typography variant="body2">
                <RoomIcon style={{position: 'relative', top: '7px'}} /> {farmacia.formatted_address}
@@ -91,7 +90,7 @@ class FarmaciaCard extends React.Component {
                <GpsFixedIcon style={{position: 'relative', top: '7px'}} /> Distancia: {farmacia.distance.toPrecision(2) + ' Kms'}
 
                { farmacia.phone &&
-                   <span> | <CallIcon style={{position: 'relative', top: '7px'}} /> <a href={'tel:'+farmacia.phone} className={classes.tel}>{farmacia.phone}</a></span>
+                   <span> | <CallIcon style={{position: 'relative', top: '7px'}} /> <a href={'tel:'+farmacia.phone} className="tel">{farmacia.phone}</a></span>
                }
             </Typography>
 
@@ -101,7 +100,7 @@ class FarmaciaCard extends React.Component {
 
         <Divider />
 
-        <CardActions className={classes.cardActions}>
+        <CardActions className="cardActions">
           <Button
             size="small"
             color="primary"
@@ -124,24 +123,4 @@ class FarmaciaCard extends React.Component {
 
 }
 
-
-
-const styles = theme => ({
-  avatar: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.text.primary
-  },
-  cardContent: {
-    textAlign: 'center',
-  },
-  cardActions: {
-    justifyContent: 'space-between',
-  },
-  tel: {
-    color: theme.palette.text.primary
-  }
-});
-
-
-
-export default withStyles(styles)(FarmaciaCard);
+export default FarmaciaCard;

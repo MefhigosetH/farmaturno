@@ -1,6 +1,6 @@
 // Importamos librerias instaladas
-import React from 'react'
-import { withStyles } from '@mui/styles';
+import React from 'react';
+import './Turnos.css';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 
@@ -103,7 +103,7 @@ class Turnos extends React.Component {
     return (
       <React.Fragment>
 
-        <blockquote className={classes.blockquote}>
+        <blockquote className="blockquote">
             <WarningIcon /> &nbsp;IMPORTANTE:<br />
             * Ya están disponibles los turnos 2023 !<br />
             * Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.<br />
@@ -111,8 +111,8 @@ class Turnos extends React.Component {
         </blockquote>
 
         { this.state.isLoading &&
-          <div className={classes.loaderContainer}>
-            <CircularProgress className={classes.loaderComponent}/>
+          <div className="loaderContainer">
+            <CircularProgress className="loaderComponent"/>
           </div>
         }
 
@@ -135,24 +135,4 @@ class Turnos extends React.Component {
 
 }
 
-
-
-const styles = theme => ({
-  blockquote: {
-    background: theme.palette.divider,
-    borderLeft: '5px solid #ffe564',
-    marginTop: '12px',
-    padding: '10px 24px'
-  },
-  loaderContainer: {
-    width: '100%',
-    height: '70vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
-
-
-
-export default withStyles(styles)(Turnos);
+export default Turnos;

@@ -1,9 +1,9 @@
 // Importamos librerias instaladas
-import React from 'react'
+import React from 'react';
+import './Footer.css';
 
 // See https://stackoverflow.com/a/51234539
 import { Link } from "react-router-dom";
-import { withStyles } from '@mui/styles';
 
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
@@ -25,7 +25,7 @@ class Footer extends React.Component {
 
     return (
       <BottomNavigation
-        className={classes.footer}
+        className="footer"
         showLabels
       >
 {/*
@@ -58,16 +58,4 @@ class Footer extends React.Component {
   }
 }
 
-
-
-const styles = theme => ({
-  footer: {
-    position: 'fixed',
-    bottom: theme.spacing(0),
-    width: '100%'
-  }
-});
-
-
-
-export default withStyles(styles)(Footer);
+export default Footer;

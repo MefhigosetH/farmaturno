@@ -1,6 +1,5 @@
 // Importamos librerias instaladas
 import React from 'react'
-import { withStyles } from '@mui/styles';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
 import CircularProgress from '@mui/material/CircularProgress';
@@ -148,4 +147,4 @@ const styles = theme => ({
 
 
 
-export default withStyles(styles)(Mapa);
+export default Mapa;
