@@ -3,9 +3,9 @@ import React from 'react';
 import './Turnos.css';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper'
 
 import CircularProgress from '@mui/material/CircularProgress';
-import WarningIcon from '@mui/icons-material/Warning';
 
 // Importamos componentes locales
 import FarmaciaCard from './FarmaciaCard';
@@ -102,12 +102,14 @@ class Turnos extends React.Component {
     return (
       <React.Fragment>
 
-        <blockquote className="blockquote">
-            <WarningIcon /> &nbsp;IMPORTANTE:<br />
-            * Ya están disponibles los turnos 2023 !<br />
-            * Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.<br />
-            * Todas las distancias se calculan, por el momento, desde la Estaci&oacute;n de Calzada.
-        </blockquote>
+        <Paper sx={{ m: 2, px: 2, py: 0.5}}>
+            <h3>NOTAS IMPORTANTES</h3>
+            <ul>
+              <li>Ya están disponibles los turnos 2023, para Rafael Calzada y Claypole !</li>
+              <li>Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.</li>
+              <li>Todas las distancias se calculan, por el momento, desde la Estaci&oacute;n de Rafael Calzada.</li>
+            </ul>
+        </Paper>
 
         { this.state.isLoading &&
           <div className="loaderContainer">
