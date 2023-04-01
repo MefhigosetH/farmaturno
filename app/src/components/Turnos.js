@@ -102,7 +102,7 @@ class Turnos extends React.Component {
     return (
       <React.Fragment>
 
-        <Paper sx={{ m: 2, p: 2}}>
+        <Paper sx={{ m: 2, px: 2, py: 0.5}}>
             <h3>NOTAS IMPORTANTES</h3>
             <ul>
               <li>Ya están disponibles los turnos 2023, para Rafael Calzada y Claypole !</li>
