@@ -14,7 +14,6 @@ import Chip from '@mui/material/Chip';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import MapIcon from '@mui/icons-material/Map';
 import RoomIcon from '@mui/icons-material/Room';
-import GpsFixedIcon from '@mui/icons-material/GpsFixed';
 import CallIcon from '@mui/icons-material/Call';
 
 
