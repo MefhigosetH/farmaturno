@@ -77,21 +77,20 @@ class FarmaciaCard extends React.Component {
             </Avatar>
           }
           title={farmacia.name}
-          subheader={farmacia.compound_code}
+          subheader={'Distancia: ' + farmacia.distance.toPrecision(2) + ' Kms'}
         />
 
         <CardContent className="cardContent">
           <Box>
             <Typography variant="body2">
-               <RoomIcon style={{position: 'relative', top: '7px'}} /> {farmacia.formatted_address}
+               <RoomIcon style={{position: 'relative', top: '7px', marginRight: '10px'}} /> {farmacia.formatted_address}
             </Typography>
 
             <Typography variant="body2">
-               <GpsFixedIcon style={{position: 'relative', top: '7px'}} /> Distancia: {farmacia.distance.toPrecision(2) + ' Kms'}
-
-               { farmacia.phone &&
-                   <span> | <CallIcon style={{position: 'relative', top: '7px'}} /> <a href={'tel:'+farmacia.phone} className="tel">{farmacia.phone}</a></span>
-               }
+                <CallIcon style={{position: 'relative', top: '7px', marginRight: '10px'}} />
+               { farmacia.phone
+                ? <a href={'tel:'+farmacia.phone} className="tel">{farmacia.phone}</a>
+                : '-'}
             </Typography>
 
           </Box>
