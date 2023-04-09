@@ -103,7 +103,7 @@ class Turnos extends React.Component {
       <React.Fragment>
 
         <Paper sx={{ m: 2, px: 2, py: 0.5}}>
-            <h3>NOTAS IMPORTANTES</h3>
+            <h3>FARMACIAS DE TURNO EN ALMIRANTE BROWN</h3>
             <ul>
               <li>Ya están disponibles los turnos 2023, para Rafael Calzada y Claypole !</li>
               <li>Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.</li>
