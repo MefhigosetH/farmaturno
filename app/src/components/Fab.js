@@ -2,7 +2,7 @@
 import React from 'react';
 import './Fab.css'
 import Fab from '@mui/material/Fab';
-import ShareIcon from '@mui/icons-material/Share';
+import FabIcon from '@mui/icons-material/Coffee';
 
 
 // Default export
@@ -12,18 +12,18 @@ class FabButton extends React.Component {
   }
 
   shareSite() {
-    console.log('Compartiendo pagina por WhatsApp!');
-    window.open('https://wa.me/?text=Farmacias%20de%20turno%20en%20Almirante%20Brown%20https://farmaturno.com.ar/?utm_source=whatsapp');
+    console.log('Gracias por invitarnos un cafecito!');
+    window.open('https://cafecito.app/mefhigoseth');
   }
 
   render() {
 
     return (
       <Fab color="primary"
-           aria-label="compartir"
+           aria-label="Invitame un cafecito"
            className="fab"
            onClick={this.shareSite}>
-        <ShareIcon />
+        <FabIcon />
       </Fab>
     );
   }
