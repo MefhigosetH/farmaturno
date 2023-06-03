@@ -118,7 +118,7 @@ class Turnos extends React.Component {
             <Paper sx={{ m: 2, px: 2, py: 2}}>
               <a 
                 href='https://cafecito.app/mefhigoseth' 
-                rel='noopener' 
+                rel='noreferrer' 
                 target='_blank'>
                   <img 
                     srcset='https://cdn.cafecito.app/imgs/buttons/button_1.png 1x, https://cdn.cafecito.app/imgs/buttons/button_1_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_1_3.75x.png 3.75x' 
