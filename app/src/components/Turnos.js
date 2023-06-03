@@ -102,14 +102,33 @@ class Turnos extends React.Component {
     return (
       <React.Fragment>
 
-        <Paper sx={{ m: 2, px: 2, py: 0.5}}>
-            <h3>FARMACIAS DE TURNO EN ALMIRANTE BROWN</h3>
-            <ul>
-              <li>Ya están disponibles los turnos 2023, para Rafael Calzada y Claypole !</li>
-              <li>Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.</li>
-              <li>Todas las distancias se calculan, por el momento, desde la Estaci&oacute;n de Rafael Calzada.</li>
-            </ul>
-        </Paper>
+        <Grid container>
+          <Grid item xs={12} md={6}>
+            <Paper sx={{ m: 2, px: 2, py: 0.5}}>
+              <h3>FARMACIAS DE TURNO EN ALMIRANTE BROWN</h3>
+              <ul>
+                <li>Ya están disponibles los turnos 2023, para Rafael Calzada y Claypole !</li>
+                <li>Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.</li>
+                <li>Todas las distancias se calculan, por el momento, desde la Estaci&oacute;n de Rafael Calzada.</li>
+              </ul>
+            </Paper>
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <Paper sx={{ m: 2, px: 2, py: 2}}>
+              <a 
+                href='https://cafecito.app/mefhigoseth' 
+                rel='noopener' 
+                target='_blank'>
+                  <img 
+                    srcset='https://cdn.cafecito.app/imgs/buttons/button_1.png 1x, https://cdn.cafecito.app/imgs/buttons/button_1_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_1_3.75x.png 3.75x' 
+                    src='https://cdn.cafecito.app/imgs/buttons/button_1.png' 
+                    alt='Invitame un café en cafecito.app' />
+              </a>
+              <p>Si ésta página te fué de utilidad, considerá invitarnos un cafecito. Tu colaboración nos ayuda a continuar brindando este servicio a la comunidad de forma gratuita y libre de anuncios molestos.</p>
+            </Paper>
+          </Grid>
+        </Grid>
 
         { this.state.isLoading &&
           <div className="loaderContainer">
