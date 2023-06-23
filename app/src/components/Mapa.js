@@ -123,7 +123,7 @@ class Mapa extends React.PureComponent {
     }
 
     return (
-        <div ref={this.mapContainer} style={{ height: '87vh' }}></div>
+        <div ref={this.mapContainer} style={{ height: '52rem' }}></div>
     );
 
   }
