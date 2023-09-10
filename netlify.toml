@@ -2,3 +2,6 @@
   from = '/api/*'
   to = '/.netlify/functions/:splat'
   status = 200
+
+[context.deploy-preview]
+  publish = "public/"
