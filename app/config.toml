@@ -1,4 +1,4 @@
-baseURL = 'https://www.farmaturno.com.ar/'
+baseURL = 'https://deploy-preview-114--farma-turno.netlify.app/'
 languageCode = 'es-ar'
 title = 'Farmaturno'
 theme = 'blist'
