@@ -15,7 +15,7 @@ DefaultContentLanguageInSubdir = true
 
     [languages.es.params]
       introTitle = "Farmacias de turno en Almirante Brown"
-      introSubtitle = "Encontrá las que están de turno, o todas... y su ubicación geográfica."
+      introSubtitle = "Encontrá las farmacias que están de turno en la zona, sus datos de contacto y ubicación geográfica."
       introPhoto = "/picture.jpg"
       logo = "/blist-logo.png"
 
@@ -81,8 +81,8 @@ DefaultContentLanguageInSubdir = true
 
 [params.homepage.social]
   # Global params common for both languages
-  title = "Follow me"
-  description = "I work on everything coding and tweet developer memes"
+  title = "Expresá tu aprecio"
+  description = "Si ésta página te fué de utilidad, considerá invitarnos un cafecito. Tu colaboración nos ayuda a continuar brindando este servicio a la comunidad de forma gratuita y libre de anuncios molestos."
 
   [[params.homepage.social.icons]]
     website = "github"
