@@ -5,10 +5,12 @@ networks:
 
 services:
   farmaturno:
-    image: node:18-alpine
+    build: 
+      context: .
+      dockerfile: Dockerfile
     container_name: farmaturno
     working_dir: /usr/src
-    command: ["./node_modules/netlify-cli/bin/run.mjs", "dev"]
+    command: ["netlify", "dev", "-c", "npm start", "--target-port", "1313"]
     environment:
       NODE_ENV: development
       REACT_APP_MAPBOX_TOKEN: ${REACT_APP_MAPBOX_TOKEN}
@@ -18,7 +20,7 @@ services:
     networks:
       - lan
     ports:
-      - "3000:3000"
+      - "1313:1313"
       - "8888:8888"
     volumes:
       - ./app:/usr/src/

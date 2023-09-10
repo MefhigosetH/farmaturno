@@ -1,45 +1,29 @@
 {
-  "name": "farmaturno",
-  "version": "23.04.09",
-  "private": true,
-  "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.14.6",
-    "@mui/material": "^5.14.6",
-    "mapbox-gl": "^2.15.0",
-    "aws-sdk": "^2.1445.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0",
-    "react-scripts": "^5.0.1"
+  "name": "blist",
+  "version": "2.1.0",
+  "description": "Blist is a clean and fast blog theme for your Hugo site.",
+  "main": "index.js",
+  "repository": "https://github.com/apvarun/blist-hugo-theme",
+  "author": "Varun A P",
+  "license": "MIT",
+  "scripts": {
+    "start": "hugo server --disableFastRender",
+    "start-examplesite": "hugo server -s exampleSite --themesDir=../.. --disableFastRender",
+    "build-examplesite": "NODE_ENV=production hugo -s exampleSite --themesDir=../.. --gc",
+    "build": "NODE_ENV=production hugo --gc"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "5.11.2",
-    "@testing-library/react": "11.0.4",
-    "@testing-library/user-event": "12.0.15",
-    "netlify-cli": "^16.1.0"
+    "@tailwindcss/typography": "^0.4.0",
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.10",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.1",
+    "tailwindcss": "^2.2.19"
   },
-  "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "lint": "eslint .",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ]
 }
