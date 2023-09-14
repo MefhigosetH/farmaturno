@@ -16,8 +16,7 @@ DefaultContentLanguageInSubdir = true
     [languages.es.params]
       introTitle = "Farmacias de turno en Almirante Brown"
       introSubtitle = "Encontrá las farmacias que están de turno en la zona, sus datos de contacto y ubicación geográfica."
-      introPhoto = "/picture.jpg"
-      logo = "/blist-logo.png"
+      introPhoto = "/hero.jpg"
 
     [[languages.es.menu.main]]
         name = "Farmacias"
