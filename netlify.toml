@@ -5,3 +5,6 @@
 
 [context.deploy-preview]
   publish = "public/"
+
+[functions."build-site"]
+  schedule = "31 11 * * *"

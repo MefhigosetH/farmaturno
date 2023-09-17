@@ -5,6 +5,11 @@
       {{ now.Format "02/01/2006" }}
     </div>
   </div>
-  <div class="my-2 text-xl font-semibold">{{ .name }}</div>
-  <div>{{ .formatted_address }}</div>
+  <div class="my-2 text-2xl font-bold">{{ .name }}</div>
+  <p>{{ .formatted_address }}</p>
+  {{ $gmap := printf "https://www.google.com/maps/search/?api=1&query=farmacias&query_place_id=%s" .place_id }}
+  <p class="mt-5">
+    <a href="{{ $gmap }}" class="bg-blue-500 hover:bg-blue-400 text-white rounded-md px-3 py-2 font-semibold">Ver en mapa</a>
+    <a href="tel:{{ int .phone }}" class="mx-2 text-white font-semibold">Tel: {{ int .phone }}</a>
+  </p>
 </div>
