@@ -1,12 +1,12 @@
 <div class="p-2">
   <div class="relative">
-    <img src="/abierto.png" alt="{{ .name }}" class="rounded-lg shadow-sm w-full h-52 object-cover" />
+    <img src="/abierto.png" alt="{{ .title }}" class="rounded-lg shadow-sm w-full h-52 object-cover" />
     <div class="absolute top-4 right-4 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white text-sm px-2 py-0.5">
       {{ now.Format "02/01/2006" }}
     </div>
   </div>
-  <div class="my-2 text-2xl font-bold">{{ .name }}</div>
-  <p>{{ .formatted_address }}</p>
+  <div class="my-2 text-2xl font-bold">{{ .title }}</div>
+  <p>{{ .description }}</p>
   {{ $gmap := printf "https://www.google.com/maps/search/?api=1&query=farmacias&query_place_id=%s" .place_id }}
   <p class="mt-5">
     <a href="{{ $gmap }}" class="bg-blue-500 hover:bg-blue-400 text-white rounded-md px-3 py-2 font-semibold">Ver en mapa</a>

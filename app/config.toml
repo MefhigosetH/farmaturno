@@ -104,3 +104,6 @@ DefaultContentLanguageInSubdir = true
   [markup.goldmark.renderer]
     # Enable to include inline HTML
     unsafe = true
+
+[taxonomies]
+  localidad = "localidades"

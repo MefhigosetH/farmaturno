@@ -1,0 +1,9 @@
+{{ $farmacias := getJSON "https://farmaturno.com.ar/api/farmacias/api/farmacias" }}
+{{ $hoy := now.Format "20060102" }}
+<div class="container p-6 pb-12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-8">
+{{ range $farmacias.Items  }}
+    {{ if in .turnos $hoy }}
+    {{- partial "farmacia-card.html" . -}}
+    {{ end }}
+{{ end }}
+</div>
