@@ -2,3 +2,9 @@
   from = '/api/*'
   to = '/.netlify/functions/:splat'
   status = 200
+
+[context.deploy-preview]
+  publish = "public/"
+
+[functions."build-site"]
+  schedule = "31 11 * * *"
