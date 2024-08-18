@@ -107,7 +107,8 @@ class Turnos extends React.Component {
             <Paper sx={{ m: 2, px: 2, py: 0.5}}>
               <h3>FARMACIAS DE TURNO EN ALMIRANTE BROWN</h3>
               <ul>
-                <li>Ya están disponibles los turnos 2024, para Rafael Calzada y Claypole !</li>
+                <li>Ya están disponibles los turnos de Agosto a Diciembre de 2024, para Rafael Calzada !</li>
+                <li>Si tenés el calendario de otra localidad, no dudes en enviármelo.</li>
                 <li>Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.</li>
                 <li>Todas las distancias se calculan, por el momento, desde la Estaci&oacute;n de Rafael Calzada.</li>
               </ul>
