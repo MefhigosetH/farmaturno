@@ -18,7 +18,12 @@ class Comments extends React.PureComponent {
 
 
   async componentDidMount() {
-    commentBox('5650535369670656-proj');
+    commentBox('5650535369670656-proj',
+      {
+        backgroundColor: '#000',
+        textColor: '#fff'
+      }
+    );
   }
 
 
