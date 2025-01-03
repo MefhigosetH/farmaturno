@@ -10,6 +10,7 @@ import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 //import HomeIcon from '@mui/icons-material/Home';
 import TurnIcon from '@mui/icons-material/LocalPharmacy';
 import MapIcon from '@mui/icons-material/LocationOn';
+import ForumIcon from '@mui/icons-material/Forum';
 
 // Default export
 class Footer extends React.Component {
@@ -50,6 +51,15 @@ class Footer extends React.Component {
             to="/mapa"
             icon={<MapIcon />}
         />
+}
+{
+        <BottomNavigationAction
+        label="Foro"
+        value="Foro"
+        component={Link}
+        to="/foro"
+        icon={<ForumIcon />}
+    />
 }
       </BottomNavigation>
     );
