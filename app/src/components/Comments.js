@@ -18,12 +18,6 @@ class Comments extends React.PureComponent {
 
 
   async componentDidMount() {
-    var API_URL = '/api';
-
-    if( process.env.NODE_ENV === 'development' ){
-        API_URL = "http://localhost:8888/.netlify/functions";
-    }
-
     commentBox('5650535369670656-proj');
   }
 
