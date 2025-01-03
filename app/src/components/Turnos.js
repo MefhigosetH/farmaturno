@@ -103,19 +103,17 @@ class Turnos extends React.Component {
       <React.Fragment>
 
         <Grid container>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={9}>
             <Paper sx={{ m: 2, px: 2, py: 0.5}}>
               <h3>FARMACIAS DE TURNO EN ALMIRANTE BROWN</h3>
-              <ul>
-                <li>Ya están disponibles los turnos de Agosto a Diciembre de 2024, para Rafael Calzada !</li>
-                <li>Si tenés el calendario de otra localidad, no dudes en enviármelo.</li>
-                <li>Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.</li>
-                <li>Todas las distancias se calculan, por el momento, desde la Estaci&oacute;n de Rafael Calzada.</li>
-              </ul>
+              <p>Gracias al <strong>Colegio de Farmaceuticos de Almirante Brown</strong>, este 2025 Farmaturno contar&aacute; con los turnos de las siguientes localidades:
+                Rafael Calzada, Claypole, Burzaco, San Jos&eacute;, Longchamps y Glew. En breve estar&aacute;n disponibles. Si ten&eacute;s el calendario de otra localidad o partido, no dudes en envi&aacute;rmelo.</p>
+              <p>Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.</p>
+              <p>Todas las distancias se calculan, por el momento, desde la Estaci&oacute;n de Rafael Calzada.</p>
             </Paper>
           </Grid>
 
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={3}>
             <Paper sx={{ m: 2, px: 2, py: 2}}>
               <a 
                 href='https://cafecito.app/mefhigoseth' 
