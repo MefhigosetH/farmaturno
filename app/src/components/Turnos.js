@@ -127,6 +127,19 @@ class Turnos extends React.Component {
               <p>Si ésta página te fué de utilidad, considerá invitarnos un cafecito. Tu colaboración nos ayuda a continuar brindando este servicio a la comunidad de forma gratuita y libre de anuncios molestos.</p>
             </Paper>
           </Grid>
+
+          <Grid item xs={12} md={12}>
+            <Paper sx={{ m: 2, px: 2, py: 0.5}}>
+              <h3>Descarga los calendarios de turnos 2025</h3>
+              <p>Mientras subimos los turnos a la p&aacute;gina, pod&eacute;s descargarte los calendarios 2025 en formato PDF:&nbsp;
+                <a href="https://drive.usercontent.google.com/download?id=1JxXXqEK1URjdJcZIuExn6jsEBvbvZNB0&export=download&authuser=0">Burzaco</a> |&nbsp;
+                <a href="https://drive.usercontent.google.com/download?id=1r5Wc-TtO7vZG2WVgfrSIMuiI3t0UrtI-&export=download&authuser=0">Claypole</a> |&nbsp;
+                <a href="https://drive.usercontent.google.com/download?id=1L1qPZh3cN_4TrWhac3QStu93552cHXjO&export=download&authuser=0">Glew</a> |&nbsp;
+                <a href="https://drive.usercontent.google.com/download?id=13JF7Gtlz56loUYnXbYHO0U16pmjloasv&export=download&authuser=0">Longchamps</a> |&nbsp;
+                <a href="https://drive.usercontent.google.com/download?id=1fQGePbuU2M-3Pv-EjMG6WTqiSUJcxg7_&export=download&authuser=0">San Jos&eacute;</a>
+              </p>
+            </Paper>
+          </Grid>
         </Grid>
 
         { this.state.isLoading &&
