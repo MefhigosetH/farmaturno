@@ -102,8 +102,8 @@ class Turnos extends React.Component {
     return (
       <React.Fragment>
 
-        <Grid container>
-          <Grid item xs={12} md={9}>
+        <Grid container sx={{ width: '100%' }}>
+          <Grid size={{ xs: 12, md: 9 }}>
             <Paper sx={{ m: 2, px: 2, py: 0.5}}>
               <h3>FARMACIAS DE TURNO EN ALMIRANTE BROWN</h3>
               <p>Gracias al <strong>Colegio de Farmaceuticos de Almirante Brown</strong>, este 2025 Farmaturno contar&aacute; con los turnos de las siguientes localidades:
@@ -113,7 +113,7 @@ class Turnos extends React.Component {
             </Paper>
           </Grid>
 
-          <Grid item xs={12} md={3}>
+          <Grid size={{ xs: 12, md: 3 }}>
             <Paper sx={{ m: 2, px: 2, py: 2}}>
               <a 
                 href='https://cafecito.app/mefhigoseth' 
@@ -128,7 +128,7 @@ class Turnos extends React.Component {
             </Paper>
           </Grid>
 
-          <Grid item xs={12} md={12}>
+          <Grid size={12}>
             <Paper sx={{ m: 2, px: 2, py: 0.5}}>
               <h3>Descarga los calendarios de turnos 2025</h3>
               <p>Mientras subimos los turnos a la p&aacute;gina, pod&eacute;s descargarte los calendarios 2025 en formato PDF:&nbsp;
@@ -149,9 +149,9 @@ class Turnos extends React.Component {
         }
 
         { !this.state.isLoading &&
-        <Grid container>
+        <Grid container sx={{ width: '100%' }}>
           { farmacias.map((farmacia) =>
-              <Grid item key={farmacia.place_id} xs={12} sm={12} md={6} lg={4} xl={3} style={{padding: 16}}>
+              <Grid key={farmacia.place_id} size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 3 }} sx={{ p: 2 }}>
                 <FarmaciaCard farmacia={farmacia} cur_date={this.cur_date} origin={this.state.origin} />
               </Grid>
           )}
