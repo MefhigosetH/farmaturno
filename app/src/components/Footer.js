@@ -11,6 +11,7 @@ import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import TurnIcon from '@mui/icons-material/LocalPharmacy';
 import MapIcon from '@mui/icons-material/LocationOn';
 import ForumIcon from '@mui/icons-material/Forum';
+import InfoIcon from '@mui/icons-material/Info';
 
 // Default export
 class Footer extends React.Component {
@@ -51,6 +52,15 @@ class Footer extends React.Component {
             to="/mapa"
             icon={<MapIcon />}
         />
+}
+{
+        <BottomNavigationAction
+        label="Info Util"
+        value="InfoUtil"
+        component={Link}
+        to="/info"
+        icon={<InfoIcon />}
+    />
 }
 {
         <BottomNavigationAction

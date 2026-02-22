@@ -15,6 +15,7 @@ import FabButton from './Fab.js'
 const Turnos = lazy(() => import('./Turnos'));
 const Mapa = lazy(() => import('./Mapa'));
 const Comments = lazy(() => import('./Comments'));
+const InfoUtil = lazy(() => import('./InfoUtil'));
 
 // Default export
 export default class App extends React.Component {
@@ -59,6 +60,7 @@ export default class App extends React.Component {
                   <Route path="/" element={<Turnos />}/>
                   <Route path="/mapa" element={<Mapa />}/>
                   <Route path="/foro" element={<Comments />}/>
+                  <Route path="/info" element={<InfoUtil />}/>
                   <Route path="*" element={<h1>404 Not Found</h1>}/>
               </Routes>
           </Suspense>

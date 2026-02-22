@@ -107,6 +107,8 @@ class Turnos extends React.Component {
           </div>
         }
 
+        <h3>Farmacias de turno hoy en Alte. Brown</h3>
+
         { !this.state.isLoading &&
         <Grid container sx={{ width: '100%' }}>
           { this.state.turnos.map((turno) =>
@@ -118,16 +120,15 @@ class Turnos extends React.Component {
         }
 
         <Grid container sx={{ width: '100%' }}>
-          <Grid size={{ xs: 12, md: 9 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Paper sx={{ m: 2, px: 2, py: 0.5}}>
-              <h3>FARMACIAS DE TURNO EN ALMIRANTE BROWN</h3>
               <p>Gracias al <strong>Colegio de Farmaceuticos de Almirante Brown</strong>, este 2026 Farmaturno contar&aacute; nuevamente con los turnos de las siguientes localidades:
                 Rafael Calzada, Claypole, Burzaco, San Jos&eacute;, Longchamps y Glew. En breve estar&aacute;n disponibles.</p>
               <p>Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente. Todas las distancias se calculan, por el momento, desde la Estaci&oacute;n de Rafael Calzada.</p>
             </Paper>
           </Grid>
 
-          <Grid size={{ xs: 12, md: 3 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Paper sx={{ m: 2, px: 2, py: 2}}>
               <a 
                 href='https://cafecito.app/mefhigoseth' 
@@ -143,6 +144,8 @@ class Turnos extends React.Component {
           </Grid>
 
         </Grid>
+
+        <h3>Todas las farmacias en Alte. Brown</h3>
 
         { !this.state.isLoading &&
         <Grid container sx={{ width: '100%' }}>
