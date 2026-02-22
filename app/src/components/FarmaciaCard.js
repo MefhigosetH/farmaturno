@@ -82,7 +82,7 @@ class FarmaciaCard extends React.Component {
         <CardContent className="cardContent">
           <Box>
             <Typography variant="body2">
-               <RoomIcon style={{position: 'relative', top: '7px', marginRight: '10px'}} /> {farmacia.formatted_address}
+               <RoomIcon style={{position: 'relative', top: '7px', marginRight: '10px'}} /> {farmacia.formatted_address.split(',').slice(0, 2).join(',')}
             </Typography>
 
             <Typography variant="body2">

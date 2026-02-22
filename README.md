@@ -30,9 +30,9 @@ Farmaturno está construido con un stack moderno, enfocado en la velocidad y la 
 
 ## 🚀 Estado del Proyecto y Futuro
 
-Actualmente, contamos con los calendarios de turnos de **Rafael Calzada**.
+Originalmente, comenzamos con los calendarios de turnos de **Rafael Calzada**.
 
-Gracias a la colaboración del **Colegio de Farmacéuticos de Almirante Brown**, para 2025 expandiremos la cobertura a las siguientes localidades:
+Gracias a la colaboración del **Colegio de Farmacéuticos de Almirante Brown**, desde 2025 expandimos la cobertura a las siguientes localidades:
 - Burzaco
 - Claypole
 - Glew

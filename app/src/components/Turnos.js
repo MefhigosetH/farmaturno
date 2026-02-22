@@ -75,6 +75,7 @@ class Turnos extends React.Component {
     const response = await fetch( API_URL + "/farmacias" );
     const items = await response.json();
     var farmacias = items['Items'];
+    var turnos = [];
 
     farmacias.forEach( (farmacia) => {
         farmacia.distance = this.distance(this.state.origin.lat, this.state.origin.lng, farmacia.lat, farmacia.lng);
@@ -86,30 +87,43 @@ class Turnos extends React.Component {
     farmacias.forEach( (farmacia) => {
         if( farmacia.turnos.includes(this.cur_date) ){
           farmacias.splice( farmacias.indexOf(farmacia), 1 );
-          farmacias.unshift( farmacia );
+          turnos.push(farmacia);
         }
     });
 
-    this.setState({ farmacias: farmacias, isLoading: false });
+    this.setState({ farmacias: farmacias, turnos: turnos, isLoading: false });
 
   }
 
 
   render() {
 
-    const farmacias = this.state.farmacias;
-
     return (
       <React.Fragment>
+
+        { this.state.isLoading &&
+          <div className="loaderContainer">
+            <CircularProgress className="loaderComponent"/>
+          </div>
+        }
+
+        { !this.state.isLoading &&
+        <Grid container sx={{ width: '100%' }}>
+          { this.state.turnos.map((turno) =>
+              <Grid key={turno.place_id} size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 3 }} sx={{ p: 2 }}>
+                <FarmaciaCard farmacia={turno} cur_date={this.cur_date} origin={this.state.origin} />
+              </Grid>
+          )}
+        </Grid>
+        }
 
         <Grid container sx={{ width: '100%' }}>
           <Grid size={{ xs: 12, md: 9 }}>
             <Paper sx={{ m: 2, px: 2, py: 0.5}}>
               <h3>FARMACIAS DE TURNO EN ALMIRANTE BROWN</h3>
-              <p>Gracias al <strong>Colegio de Farmaceuticos de Almirante Brown</strong>, este 2025 Farmaturno contar&aacute; con los turnos de las siguientes localidades:
-                Rafael Calzada, Claypole, Burzaco, San Jos&eacute;, Longchamps y Glew. En breve estar&aacute;n disponibles. Si ten&eacute;s el calendario de otra localidad o partido, no dudes en envi&aacute;rmelo.</p>
-              <p>Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente.</p>
-              <p>Todas las distancias se calculan, por el momento, desde la Estaci&oacute;n de Rafael Calzada.</p>
+              <p>Gracias al <strong>Colegio de Farmaceuticos de Almirante Brown</strong>, este 2026 Farmaturno contar&aacute; nuevamente con los turnos de las siguientes localidades:
+                Rafael Calzada, Claypole, Burzaco, San Jos&eacute;, Longchamps y Glew. En breve estar&aacute;n disponibles.</p>
+              <p>Cada turno comienza a las 08:30 Hs del día indicado y termina a las 08:30 del día siguiente. Todas las distancias se calculan, por el momento, desde la Estaci&oacute;n de Rafael Calzada.</p>
             </Paper>
           </Grid>
 
@@ -124,33 +138,15 @@ class Turnos extends React.Component {
                     src='https://cdn.cafecito.app/imgs/buttons/button_1.png' 
                     alt='Invitame un café en cafecito.app' />
               </a>
-              <p>Si ésta página te fué de utilidad, considerá invitarnos un cafecito. Tu colaboración nos ayuda a continuar brindando este servicio a la comunidad de forma gratuita y libre de anuncios molestos.</p>
+              <p>Si ésta página te fué de utilidad, considerá invitarnos un cafecito. Tu colaboración nos ayuda a continuar brindando este servicio de forma gratuita y libre de anuncios molestos.</p>
             </Paper>
           </Grid>
 
-          <Grid size={12}>
-            <Paper sx={{ m: 2, px: 2, py: 0.5}}>
-              <h3>Descarga los calendarios de turnos 2025</h3>
-              <p>Mientras subimos los turnos a la p&aacute;gina, pod&eacute;s descargarte los calendarios 2025 en formato PDF:&nbsp;
-                <a href="https://drive.usercontent.google.com/download?id=1JxXXqEK1URjdJcZIuExn6jsEBvbvZNB0&export=download&authuser=0">Burzaco</a> |&nbsp;
-                <a href="https://drive.usercontent.google.com/download?id=1r5Wc-TtO7vZG2WVgfrSIMuiI3t0UrtI-&export=download&authuser=0">Claypole</a> |&nbsp;
-                <a href="https://drive.usercontent.google.com/download?id=1L1qPZh3cN_4TrWhac3QStu93552cHXjO&export=download&authuser=0">Glew</a> |&nbsp;
-                <a href="https://drive.usercontent.google.com/download?id=13JF7Gtlz56loUYnXbYHO0U16pmjloasv&export=download&authuser=0">Longchamps</a> |&nbsp;
-                <a href="https://drive.usercontent.google.com/download?id=1fQGePbuU2M-3Pv-EjMG6WTqiSUJcxg7_&export=download&authuser=0">San Jos&eacute;</a>
-              </p>
-            </Paper>
-          </Grid>
         </Grid>
-
-        { this.state.isLoading &&
-          <div className="loaderContainer">
-            <CircularProgress className="loaderComponent"/>
-          </div>
-        }
 
         { !this.state.isLoading &&
         <Grid container sx={{ width: '100%' }}>
-          { farmacias.map((farmacia) =>
+          { this.state.farmacias.map((farmacia) =>
               <Grid key={farmacia.place_id} size={{ xs: 12, sm: 12, md: 6, lg: 4, xl: 3 }} sx={{ p: 2 }}>
                 <FarmaciaCard farmacia={farmacia} cur_date={this.cur_date} origin={this.state.origin} />
               </Grid>
