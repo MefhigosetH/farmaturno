@@ -3,7 +3,7 @@ networks:
 
 services:
   farmaturno:
-    image: node:24-alpine
+    image: node:26-alpine
     container_name: farmaturno
     working_dir: /usr/src
     command: ["./node_modules/netlify-cli/bin/run.mjs", "dev"]
